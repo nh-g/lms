@@ -1,5 +1,5 @@
 //@ts-nocheck
-//NPM Packages
+// NPM Packages
 import { useState, useCallback, useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
@@ -11,7 +11,7 @@ import Footer from "components/shared/Footer";
 import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
-
+import logo from "./assets/brand/logo.png";
 export default function App() {
   // Global state
   const { loggedIn, setLoggedIn, setUser } = useAuth();
@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <div className="App">
-      {status === 0  && <Spinner />}
+      {status === 0 && <Spinner />}
       {status === 2 && <BoxError />}
       {status === 1 && (
         <BrowserRouter>

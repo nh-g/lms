@@ -2,7 +2,7 @@
 //NM=PM PAckages
 import { useState } from "react";
 
-//Local imports
+// Project files
 import { useAuth } from "state/AuthProvider";
 import Identificator from "components/shared/Identificator";
 import Sorter from "components/shared/Sorter";

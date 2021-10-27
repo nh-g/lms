@@ -1,14 +1,15 @@
 //@ts-nocheck
-//NPM Packages
+// NPM Packages
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
-//Local imports
+// Project files
 import fields from "assets/fields-signup.json";
 import InputField from "./shared/InputField";
 import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";
 import { createDocumentWithId } from "scripts/fireStore";
+import logo from "../assets/brand/logo.png";
 
 export default function Signup() {
   //Local states
@@ -57,6 +58,8 @@ export default function Signup() {
   return (
     <main className="page-login signup ">
       <form onSubmit={onSubmit}>
+        <img src={logo} className="logo" alt="circle with text" />
+        <h3>Start becoming a empowering parent today</h3>
         {Fields}
         <button className="btn btn-main">
           <h4>sign up</h4>

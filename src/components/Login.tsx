@@ -1,14 +1,15 @@
 //@ts-nocheck
-//NPM Packages
+// NPM Packages
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-//Local imports
+// Project files
 import fields from "assets/fields-login.json";
 import InputField from "./shared/InputField";
 import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";
 import { useAuth } from "state/AuthProvider";
+import logo from '../assets/brand/logo.png';
 
 export default function Login() {
   // Global states
@@ -57,6 +58,10 @@ export default function Login() {
   return (
     <main className="page-login">
       <form onSubmit={onSubmit}>
+        <img src={logo} className="logo" alt="circle with text" />
+
+        <h3>Welcome back. Please login to your account</h3>
+
         {Fields}
         <p>{errorMessage}</p>
         <label className="remember">
@@ -68,7 +73,7 @@ export default function Login() {
           <h4>Remember me</h4>
         </label>
         <button className="btn btn-main">
-          <h4>Login</h4>
+          <h4>Log in</h4>
         </button>
       </form>
       <p className="optional-action">

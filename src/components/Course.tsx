@@ -1,8 +1,8 @@
 //@ts-nocheck
-//NPM Packages
+// NPM Packages
 import { useParams, Link } from "react-router-dom";
 
-//Local imports
+// Project files
 import { getCourseById } from "scripts/courses";
 import { useCourses } from "state/CoursesProvider";
 import { useAuth } from "state/AuthProvider";

@@ -48,7 +48,7 @@ export default function Landing() {
                 <h4>sign up</h4>
               </Link>
               <Link className="btn btn-ghost btn-login" to="/login">
-                <h4>login</h4>
+                <h4>log in</h4>
               </Link>
             </div>
           </div>
@@ -58,6 +58,9 @@ export default function Landing() {
       <section id="articles">
         <div className="article-masonry">{Articles}</div>
       </section>
+      <Link className="btn btn-main cta" to="/login">
+        <h4>find more </h4>
+      </Link>
     </div>
   );
 }

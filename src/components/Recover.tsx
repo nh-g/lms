@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-//Local imports
+// Project files
 import fields from "assets/fields-recover.json";
 import InputField from "./shared/InputField";
 
@@ -37,8 +37,8 @@ export default function Recover() {
       <h2>Password Reset</h2>
       <br />
       <p>
-        Enter the <span>email address </span> that you used to register. We'll send
-        you an email with a link to reset your password
+        Enter the <span>email address </span> that you used to register. We'll
+        send you an email with a link to reset your password
       </p>
       <br />
       <form onSubmit={onSubmit}>

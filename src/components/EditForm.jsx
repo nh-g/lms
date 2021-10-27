@@ -1,8 +1,8 @@
-//NPM Packages
+// NPM Packages
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-//Local imports
+// Project files
 import fields from "assets/fields-edit.json";
 import InputField from "./shared/InputField";
 import { createDoc } from "scripts/fireStore";

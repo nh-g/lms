@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
 import { useAuth } from "state/AuthProvider";
-import "./styles/base.sass";
+import "./styles/styles.sass";
 import Logged from "routes/Logged";
 import Unlogged from "routes/Unlogged";
 import Footer from "components/shared/Footer";

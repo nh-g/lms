@@ -59,13 +59,12 @@ export default function Signup() {
       <form onSubmit={onSubmit}>
         {Fields}
         <button className="btn btn-main">
-          <h4>signup</h4>
+          <h4>sign up</h4>
         </button>
       </form>
       <p className="optional-action">
-        Forgot password ? :
         <Link to="/recover">
-          <strong> Recover </strong>{" "}
+          <strong> Forgot password? </strong>{" "}
         </Link>
       </p>
     </main>

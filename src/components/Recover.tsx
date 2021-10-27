@@ -34,10 +34,17 @@ export default function Recover() {
   ));
   return (
     <main className="page-login recover">
+      <h2>Password Reset</h2>
+      <br />
+      <p>
+        Enter the <span>email address </span> that you used to register. We'll send
+        you an email with a link to reset your password
+      </p>
+      <br />
       <form onSubmit={onSubmit}>
         {Fields}
         <button className="btn btn-main">
-          <h4>recover password</h4>
+          <h4>send</h4>
         </button>
       </form>
     </main>

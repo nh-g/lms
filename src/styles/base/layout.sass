@@ -1,7 +1,6 @@
 
 *
   box-sizing: border-box
-
   scroll-behavior: smooth
   -ms-overflow-style: none
   font-smooth: auto
@@ -13,13 +12,19 @@
 :-webkit-scrollbar
   display: none
 
-// .App
-//   display: flex
-//   flex-direction: column
-//   color: $gray2
+.App
+  color: $dark
+  font-family: $font-text
+  display: grid
+  grid-template-rows: auto 1fr auto
 
-main
-  min-height: calc(100vh - 160px)
+
+html, body, #root, .App
+  height: 100vh
+  margin: 0
+
+// main
+//   min-height: calc(100vh - 160px)
 
 ul,
 li,

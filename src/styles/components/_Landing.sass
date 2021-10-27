@@ -41,6 +41,7 @@
                     font-size: 1.7rem
                     line-height: 2.5rem
                     letter-spacing: 0.8px
+                    margin-bottom: 10px
                     span
                         color: $darkblue
                 small
@@ -90,21 +91,28 @@
 
     img
         object-fit: contain
-        width: 300px
+        width: 280px
+        height: 200px
         border-radius: 0 0 40px 0
 
 
     article
         text-align: center
         margin-bottom: 1rem
-        width: 300px
+        width: 280px
         border: solid 1px $light
 
+        &:nth-child(even) h2
+            color: $darkblue
 
-        h2
+
+
+        h2  
+            font-size: 22px
             line-height: 41px
             letter-spacing: 0.8px
             font-weight: 500
+
         p
             line-height: 30px
             font-weight: 300

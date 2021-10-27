@@ -3,10 +3,19 @@
     flex-direction: column
     align-items: center
     justify-content: center
-    // background: $yellow
+    // background: $darkblue
     min-height: calc(100vh - $footer-height)
     // background-image: url('../../assets/home/cloud-background.png')
+    font-size: 17px
 
+    form
+        width: 300px
+        label
+            font-weight: 500
+        input
+            border: 1px solid #ccd1d9
+
+    
 
     .remember
         width: 100%
@@ -17,17 +26,15 @@
         input[type=checkbox]
             width: 1em
             margin-right: 1em
+        h4
+            font-weight: 300
 
     .optional-action
         margin: 1.5em
+        color: #1e68fc
 
-        a:hover
-            border-bottom: 1px solid $gray3
+        &:hover
+            color: $dark
+            
 
-.signup
-    // background: $red
 
-    // .btn-main
-    //     box-shadow: 3px 3px 0 red
-    //     h4
-    //         color: $red

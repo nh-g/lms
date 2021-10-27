@@ -72,9 +72,8 @@ export default function Login() {
         </button>
       </form>
       <p className="optional-action">
-        Not registered ?
         <Link to="/signup">
-          <strong> Create an account</strong>
+          <strong> Create a new account</strong>
         </Link>
       </p>
     </main>

@@ -2,7 +2,7 @@
   {
     "key": "username",
     "label": "Username",
-    "placeholder": "kMbappe12",
+    "placeholder": "your name",
     "type": "text"
   },
   {

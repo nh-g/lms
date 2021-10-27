@@ -1,0 +1,31 @@
+/* list appears */
+
+//Initial state
+.fade-down-appear
+  transform: translateY(-30px)
+  opacity: 0
+
+.fade-up-appear
+  transform: translateY(30px)
+  opacity: 0
+
+//Final state
+.fade-down-appear-active,
+.fade-up-appear-active
+  opacity: 1
+  transform: translateY(0px)
+  transition: ease 400ms
+
+:root
+  @keyframes enter-animation
+    0%
+      opacity: 0
+      transform: translateX(30vw)
+
+    70%
+      opacity: 1
+      transform: translateX(-50px)
+
+    100%
+      opacity: 1
+      transform: translateX(0)

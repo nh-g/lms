@@ -1,0 +1,94 @@
+@mixin flex-full-centered
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin grid-centered
+    display: grid
+    align-items: center
+
+@mixin grid-modal-item
+    display: grid
+    grid-template-columns: 1fr 40%
+    align-items: center
+    padding: 6px 12px
+
+@mixin grid-modal-notes
+    display: grid
+    grid-template-rows: min-content minmax(min-content,60px)
+    gap: 6px
+    align-items: center
+    padding: 6px 12px
+    p
+        height: 100%
+        width: 100%
+        background: $white
+        border-radius: 8px
+        padding: 8px
+
+@mixin absolute-centered
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+
+@mixin absolute-horizontal-centered
+    // position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+@mixin shadow-card
+    box-shadow: 4px 4px 6px rgba(0,0,0,.4)
+
+@mixin text-bloc
+    text-align: justify
+    text-justify: inter-word
+    hyphens: auto
+    overflow: hidden
+    word-wrap: break-word
+
+@mixin color-svg
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(-45deg)
+
+@mixin color-svg-red
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(-45deg)
+
+@mixin page-layout
+    display: grid
+    grid-auto-flow: row
+    grid-auto-rows: min-content
+
+    justify-items: center
+    align-items: center
+
+    @media only screen and (min-width: 800px)
+        max-width: 800px
+        margin: auto
+
+@mixin page-layout-title
+    width: 100%
+    text-align: center
+    text-transform: capitalize
+    padding: 12px 0
+    border-radius: 0 0 4px 4px
+    @media only screen and (min-width: $desktopBreakpoint)
+        text-align: left
+        padding-left: 18px
+
+@mixin page-layout-description
+    width: 100%
+    max-height: 100px
+    overflow: hidden
+
+    @media only screen and (min-width: $desktopBreakpoint)
+        width: 800px
+        margin: auto
+
+    p
+        background: $gray3
+        padding: 12px 18px
+        @media only screen and (min-width:500px)
+            columns: 2
+            padding: 18px
+        @media only screen and (min-width: 800px)
+            columns: 3

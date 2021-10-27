@@ -1,0 +1,81 @@
+
+*
+  box-sizing: border-box
+
+  scroll-behavior: smooth
+  -ms-overflow-style: none
+  font-smooth: auto
+  -moz-osx-font-smoothing: auto
+  -webkit-font-smoothing: subpixel-antialiased
+  scrollbar-width: none
+  //-webkit-appearance: none
+
+:-webkit-scrollbar
+  display: none
+
+// .App
+//   display: flex
+//   flex-direction: column
+//   color: $gray2
+
+main
+  min-height: calc(100vh - 160px)
+
+ul,
+li,
+table,
+tr,
+td
+  margin: 0
+  padding: 0
+
+// Image sizes
+
+.img-50
+  height: 50px
+  width: 50px
+
+.img-40
+  height: 40px
+  width: 40px
+
+.img-30
+  height: 30px
+  width: 30px
+
+.img-bw
+  filter: grayscale(1)
+
+.img-2em
+  width: 2em
+  height: auto
+
+.img-1em
+  width: 1em
+  height: auto
+
+.card
+  //cursor: pointer
+  //filter: brightness(0.9)
+  &:hover
+    //transform: scale(1.01)
+    //filter: brightness(1)
+    //transition: ease .3s
+
+.form
+  .verif
+    color: $redDark
+    font-weight: 300
+    font-size: 14px
+    text-align: left
+
+input[type=text]
+  padding: 0 18px
+
+// section
+//   padding: 1em 0
+
+iframe
+  display: none
+  height: 0
+  width: 0

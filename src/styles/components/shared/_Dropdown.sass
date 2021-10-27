@@ -1,0 +1,83 @@
+
+.dropdown
+    position: absolute
+    top: 10px
+    right: 0
+    z-index: 10
+
+    display: flex
+    justify-content: flex-end
+
+    width: 250px
+    padding: 0 1em
+
+    h4
+        display: none
+
+    .buttons
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(3,1fr)
+        grid-template-rows: 1fr
+        grid-template-areas: "calendar logout open"
+
+        justify-items: flex-end
+
+        button
+            width: min-content
+
+            &:hover
+                background: rgba(255,255 ,255 ,.1 )
+
+        .calendar
+            grid-area: calendar
+
+        .logout
+            grid-area: logout
+
+        .open
+            grid-area: open
+
+.dropdown-open
+    height: min-content
+
+    background: black
+    border-radius: 0 0 0 8px
+    padding-bottom: .3em
+    .buttons
+        width: 100%
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 50px 15px 50px 50px
+        grid-template-areas: "open" "." "calendar" "logout"
+
+        .calendar
+            grid-area: calendar
+
+        .logout
+            grid-area: logout
+        .open
+            width: 100%
+            grid-area: open
+            justify-content: flex-end
+            display: flex
+            align-items: center
+            border-bottom: 1px solid $gray2
+            h4
+                width: 100%
+                text-align: center
+
+            button
+                width: min-content
+
+        button
+            width: 100%
+            display: flex
+            justify-content: flex-start
+
+        h4
+            display: block
+            color: $yellow
+            margin: 0 1em
+        &:hover
+            //background: red

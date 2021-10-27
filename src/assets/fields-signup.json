@@ -1,0 +1,20 @@
+[
+  {
+    "key": "username",
+    "label": "Username",
+    "placeholder": "kMbappe12",
+    "type": "text"
+  },
+  {
+    "key": "email",
+    "label": "Email",
+    "placeholder": "youremail@provider.com",
+    "type": "email"
+  },
+  {
+    "key": "password",
+    "label": "Password",
+    "placeholder": "*********",
+    "type": "password"
+  }
+]

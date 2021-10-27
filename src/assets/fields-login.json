@@ -1,0 +1,14 @@
+[
+  {
+    "key": "email",
+    "label": "Email",
+    "placeholder": "youremail@provider.com",
+    "type": "email"
+  },
+  {
+    "key": "password",
+    "label": "Password",
+    "placeholder": "*********",
+    "type": "password"
+  }
+]

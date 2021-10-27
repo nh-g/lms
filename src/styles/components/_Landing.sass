@@ -1,0 +1,124 @@
+.hero-arrow 
+    @include absolute-horizontal-centered
+    bottom: 10px
+    // margin-top: 10px
+    height: 25px
+    &:hover
+        transition: all .2s ease-out
+        transform: scale(1.08)
+
+
+#hero
+    background-image: url('../../assets/home/hero.png')
+    background-size: cover
+    min-height: 100vh
+    overflow: hidden
+    
+    .grid
+        width: 100%
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr
+        margin: 0 auto
+        // margin-top: 1rem
+
+        img
+            margin: auto
+            width: 50%
+
+        .content 
+            margin: auto
+            display: grid
+            grid-template-rows: 1fr 115px 1fr
+
+            .title
+                width: 100%
+                padding: 1rem
+                text-align: center
+
+                strong
+                    color: $dark
+                    font-size: 1.7rem
+                    line-height: 2.5rem
+                    letter-spacing: 0.8px
+                    span
+                        color: $darkblue
+                small
+                    letter-spacing: 1px
+                    line-height: 1.5rem
+                
+
+            .buttons
+                margin: auto
+                width: 300px
+
+                .btn-ghost
+                    margin-top: 1rem
+                    border: solid 2px $darkblue
+
+        @media only screen and (min-width: $desktopBreakpoint)
+            height: 600px
+            padding: 48px
+            max-width: 960px
+            grid-template-columns: 50% 50%
+            img
+                width: 90%
+
+            .content
+                grid-column: 1
+                grid-row: 1
+                grid-template-rows: 1fr 0px 1fr
+                .title
+                    padding: 0
+                    text-align: left
+                    max-width: 450px
+
+                .buttons
+                    margin-left: 0
+
+        @media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint)
+            .content
+                grid-template-rows: 1fr 1fr 1fr
+                .title
+                    width: 500px
+
+                
+#articles
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+        object-fit: contain
+        width: 300px
+        border-radius: 0 0 40px 0
+
+
+    article
+        text-align: center
+        margin-bottom: 1rem
+        width: 300px
+        border: solid 1px $light
+
+
+        h2
+            line-height: 41px
+            letter-spacing: 0.8px
+            font-weight: 500
+        p
+            line-height: 30px
+            font-weight: 300
+            letter-spacing: 0.7px
+            padding: 20px
+
+
+    @media only screen and (min-width: $desktopBreakpoint)
+        padding: 48px
+        .article-masonry
+            display: grid
+            grid-template-columns: 1fr 1fr 1fr 
+            grid-gap: 1rem
+
+
+        
+    

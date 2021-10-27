@@ -1,0 +1,97 @@
+button
+  background: none
+  border: none
+  cursor: pointer
+
+.btn
+  cursor: pointer
+  height: $mob-button-height
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 12px
+  border-radius: 50px
+  font-weight: 500
+  &:hover
+    box-shadow: unset
+    transition: ease 0.1s
+    transform: scale(1.02)
+
+
+
+.btn-main
+  background-color: $green
+
+  h4
+    color: $white
+    text-transform: uppercase
+
+  .icon-btn
+    width: 20px
+    height: 20px
+    margin: 6px
+    filter: invert(1)
+
+  &:disabled
+    filter: saturate(0)
+    opacity: 0.05
+
+.btn-ghost
+  background-color: $white
+
+  h4
+    color: $darkblue
+    text-transform: uppercase
+
+  // .icon-btn
+  //   width: 20px
+  //   height: 20px
+  //   margin: 6px
+  //   filter: invert(0.5) sepia(1) saturate(5) hue-rotate(-45deg)
+
+
+.pill
+  height: 25px
+  cursor: default
+  border: 1px solid $gray4
+  border-radius: 8px
+
+  h3
+    font-size: 14px
+    margin-left: 3px
+    color: $gray4
+    padding: 0 12px
+
+input
+  border: none
+  min-height: 30px
+  border-radius: 8px
+
+// input[type="submit"]
+//   color: $white
+
+.btn-circle
+  height: 44px
+  width: 44px
+  border-radius: 44px
+  background: $red
+  color: $white
+
+.btn-300
+  width: 300px
+
+.btn-140
+  width: 140px
+
+.btn-delete
+  background: $red
+  color: $white
+  filter: brightness(.9)
+  box-shadow: 2px 2px 0 red
+  img
+    width: 24px
+    filter: invert(1)
+    transform: skewX(20deg)
+    margin: 0 .5em
+  &:hover
+    filter: brightness(1)

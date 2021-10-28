@@ -1,17 +1,14 @@
-import { FC } from "react";
-
-interface MyProps {
+interface iProps {
   username: string;
   role: string;
 }
 
-const Identificator: FC<MyProps> = ({ username, role }) => {
-  return (
+
+export default function Identificator ({username, role}:iProps){
+    return (
     <div className={`role ${role}`}>
-      <h1>@{username}</h1>
+      <h1>{username}</h1>
       <h2>{role}</h2>
     </div>
   );
 };
-
-export default Identificator;

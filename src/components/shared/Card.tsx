@@ -3,10 +3,10 @@ import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "components/shared/Modal";
 
-interface MyProps {
+interface iProps {
   data: object;
 }
-const Card: FC<MyProps> = ({ data }) => {
+const Card: FC<iProps> = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="card">

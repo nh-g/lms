@@ -25,7 +25,7 @@ export default function Course() {
 
   return (
     <>
-      <Identificator role={user.role} username={user.username} />
+      {/* <Identificator role={user.role} username={user.username} /> */}
       <main className="page-course">
         {courses.loading === true && <Spinner />}
         {courses.error !== null && <BoxError />}

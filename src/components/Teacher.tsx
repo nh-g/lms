@@ -8,6 +8,7 @@ import Identificator from "components/shared/Identificator";
 import Sorter from "components/shared/Sorter";
 import CoursesList from "components/CoursesList";
 import StudentList from "components/StudentList";
+import Navigator from "./shared/Navigator";
 
 export default function Teacher() {
   // Global state
@@ -17,11 +18,14 @@ export default function Teacher() {
   const [selection, setSelection] = useState("courses");
 
   return (
-    <main className="page-teacher">
-      <Identificator username={user.username} role={user.role} />
-      <Sorter hook={[selection, setSelection]} />
-      {selection === "courses" && <CoursesList />}
-      {selection === "students" && <StudentList />}
-    </main>
+    <div className="template">
+      <Navigator />
+      {/* <Identificator username={user.username} role={user.role} /> */}
+      <div className="page-container">
+        <Sorter hook={[selection, setSelection]} />
+        {selection === "courses" && <CoursesList />}
+        {selection === "students" && <StudentList />}
+      </div>
+    </div>
   );
 }

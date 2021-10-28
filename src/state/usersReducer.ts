@@ -8,7 +8,7 @@ export default function usersReducer(state, action) {
   }
 }
 
-function setUsers(state, action) {
+function setUsers(action) {
   const { payload } = action;
   return payload;
 }

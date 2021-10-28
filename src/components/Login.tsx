@@ -13,9 +13,10 @@ import logo from '../assets/brand/logo.png';
 
 export default function Login() {
   // Global states
-  const { setLoggedIn, setUser } = useAuth();
+  const { setLoggedIn, user, setUser } = useAuth();
   const history = useHistory();
 
+  console.log("User", user)
   //Local states
   const [form, setForm] = useState({ email: "", password: "" });
   const [remember, setRemember] = useState(false);
@@ -39,7 +40,15 @@ export default function Login() {
     setUser(document);
     setLoggedIn(true);
     if (remember) localStorage.setItem("uid", uid);
-    history.push("/");
+
+    if (user.role === "teacher") {
+      history.push("/course-edit")
+    } else if (user.role === "student") {
+      history.push("/course")
+    } 
+    // else{
+    //   history.push("/");
+    // }
   }
 
   function onFailure(code) {

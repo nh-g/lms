@@ -3,15 +3,15 @@
 import { useState, useCallback, useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
+// Project files
 import { useAuth } from "state/AuthProvider";
 import "./styles/styles.sass";
 import Logged from "routes/Logged";
-import Unlogged from "routes/Unlogged";
+import UnLogged from "routes/Unlogged";
 import Footer from "components/shared/Footer";
 import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
-import logo from "./assets/brand/logo.png";
 export default function App() {
   // Global state
   const { loggedIn, setLoggedIn, setUser } = useAuth();
@@ -41,8 +41,15 @@ export default function App() {
       {status === 2 && <BoxError />}
       {status === 1 && (
         <BrowserRouter>
-          <Switch>{loggedIn ? <Logged /> : <Unlogged />}</Switch>
-          <Footer />
+          <Switch>
+            {loggedIn ? (
+              <Logged />
+            ) : (
+              <>
+                <UnLogged /> <Footer />
+              </>
+            )}
+          </Switch>
         </BrowserRouter>
       )}
     </div>

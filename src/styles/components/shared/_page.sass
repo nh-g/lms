@@ -1,0 +1,24 @@
+.template 
+	display: grid
+	grid-template-columns: none
+	grid-template-rows: 1fr 56px
+	grid-template-areas: "page-container" "navbar"
+	min-height: 100% // for Safari
+
+.navigation-bar 
+	grid-area: navbar
+
+.page-container 
+	grid-area: page-container
+	display: flex
+	justify-content: center
+
+
+@media ( min-width: $desktopBreakpoint) and (orientation: landscape) 
+	.template 
+		grid-template-columns: 72px 1fr
+		grid-template-rows: none
+		grid-template-areas: "navbar page-container"
+
+
+

@@ -7,7 +7,6 @@ import { getCourseById } from "scripts/courses";
 import { useCourses } from "state/CoursesProvider";
 import { useAuth } from "state/AuthProvider";
 import Files from "./shared/Files";
-import Identificator from "./shared/Identificator";
 import Links from "./shared/Links";
 import useFetch from "hooks/useFetch";
 import Spinner from "./shared/Spinner";
@@ -25,7 +24,6 @@ export default function Course() {
 
   return (
     <>
-      {/* <Identificator role={user.role} username={user.username} /> */}
       <main className="page-course">
         {courses.loading === true && <Spinner />}
         {courses.error !== null && <BoxError />}

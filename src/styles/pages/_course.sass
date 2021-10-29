@@ -1,0 +1,26 @@
+#course 
+  // flex to fix footer to the bottom
+  .page 
+    display: flex
+    flex-direction: column
+
+  .btn btn-main btn-200 
+    margin-top: auto
+
+  .list-material 
+    margin-bottom: $space-small
+
+@media ( min-width: $media-tablet) and (orientation: landscape) 
+  .list-material 
+    display: grid
+    grid-template-columns: repeat(2,  1fr)
+    column-gap: $space-medium
+
+@media ( min-width: #{$media-desktop}) and (orientation: landscape) 
+  .list-material 
+    grid-template-columns: repeat(3,  1fr)
+    column-gap: $space-big
+
+@media ( min-width: 1500px) and (orientation: landscape) 
+  .list-material 
+    grid-template-columns: repeat(4,  1fr)

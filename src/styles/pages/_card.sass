@@ -16,9 +16,7 @@
     overflow: hidden
 
     .image
-      width: 222px
-      // height: 115px
-      // display: block // to remove gap on the bottom
+      display: block // to remove gap on the bottom
       max-width: 100%
 
 
@@ -40,10 +38,10 @@
 
   .label 
     display: inline-block
-    max-width: 80px
+    max-width: 120px
     color: $dark
     font-size: 15px
-    font-weight: bold
+    font-weight: 700
 
 .card:hover 
   cursor: pointer
@@ -51,7 +49,7 @@
     text-decoration: underline
 
 
-@media ( min-width: $desktopBreakpoint) 
+@media ( min-width: $media-desktop) 
   .card 
     margin-bottom: $space-big
 

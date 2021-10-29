@@ -1,4 +1,3 @@
-import React from "react";
 import '../../styles/components/shared/_Spinner.scss'
 export default function Spinner() {
   return (

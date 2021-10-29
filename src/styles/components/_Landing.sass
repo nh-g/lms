@@ -57,7 +57,7 @@
                     margin-top: 1rem
                     border: solid 2px $darkblue
 
-        @media only screen and (min-width: $desktopBreakpoint)
+        @media only screen and (min-width: $media-desktop)
             height: 600px
             padding: 48px
             max-width: 960px
@@ -77,7 +77,7 @@
                 .buttons
                     margin-left: 0
 
-        @media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint)
+        @media only screen and (min-width: $media-tablet) and (max-width: $media-desktop)
             .content
                 grid-template-rows: 1fr 1fr 1fr
                 .title
@@ -120,7 +120,7 @@
             padding: 20px
 
 
-    @media only screen and (min-width: $desktopBreakpoint)
+    @media only screen and (min-width: $media-desktop)
         padding: 48px
         .article-masonry
             display: grid

@@ -8,7 +8,7 @@ import Teacher from "components/teacher";
 import Student from "components/student";
 import Login from "components/Login";
 import SignUp from "components/Signup";
-import Course from "components/Course";
+import Course from "components/course";
 import StudentList from "components/StudentList"
 import Navigator from "components/shared/Navigator";
 

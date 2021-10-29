@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Project files
 import CoursesList from "components/CoursesList";
-import Modal from "components/shared/Modal";
+import Modal from "components/teacher/Modal";
 
 export default function Teacher() {
   const [isOpen, setIsOpen] = useState(false);

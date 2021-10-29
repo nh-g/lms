@@ -3,19 +3,22 @@ import { useState } from "react";
 
 //Local Files
 import useFetch from "hooks/useFetch";
+import { useAuth } from "state/AuthProvider";
 import { useCourses } from "state/CoursesProvider";
-import Card from "./shared/Card";
+
+import CardInTeacherPage from "./teacher/Card";
+import CardInStudentPage from "./student/Card";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
+import MappingList from "./shared/MappingList";
 
 export default function CoursesList() {
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
 
-  //Components
-  const Courses = courses.data.map((item) => {
-    return <Card key={item.id} data={item} />;
-  });
+  const { user } = useAuth();
+  const isTeacher = user.role === "teacher";
+
 
   return (
     <>
@@ -24,7 +27,11 @@ export default function CoursesList() {
 
       {(!courses.loading && courses.error) === null && (
         <section className="cards">
-          {Courses}
+          {isTeacher ? (
+            <MappingList Component={CardInTeacherPage} mapData={courses.data} />
+          ) : (
+            <MappingList Component={CardInStudentPage} mapData={courses.data} />
+          )}
         </section>
       )}
     </>

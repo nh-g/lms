@@ -1,7 +1,7 @@
 import reactDom from "react-dom";
 import cross from "assets/images/cross.png";
 
-import AnimateContainer from "./AnimateContainer";
+import AnimateContainer from "../shared/AnimateContainer";
 import CreateForm from "components/CreateForm";
 import EditForm from "components/EditForm";
 

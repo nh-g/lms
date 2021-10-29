@@ -1,27 +1,28 @@
-//@ts-nocheck
-import { FC, useState } from "react";
+// @ts-nocheck
 import { Link } from "react-router-dom";
-import Modal from "components/shared/Modal";
+import Modal from "./Modal";
 
 interface iProps {
-  data: object;
+  item: object;
 }
-const Card: FC<iProps> = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function  Card({ item }:iProps) {
+  // @ts-nocheck
+  // const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="card">
-      <Modal
+      {/* <Modal
         type="edit"
-        data={data}
+        data={item}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        data={data}
       >
         Edit course
-      </Modal>
-      <h2 className="title">{data.title}</h2>
-      <p className="description">{data.description}</p>
-      <img src={data.imageURL} alt="img" />
+      </Modal> */}
+
+      <h2 className="title">{item.title}</h2>
+      <p className="description">{item.description}</p>
+      <img src={item.imageURL} alt="img" />
       <div className="menu">
         <button onClick={() => setIsOpen(true)}>
           <h3>Edit</h3>
@@ -30,7 +31,7 @@ const Card: FC<iProps> = ({ data }) => {
         <button className="btn">
           <h3>Delete</h3>
         </button>
-        <Link to={"/courses/" + data.id}>
+        <Link to={"/courses/" + item.id}>
           <h3>View Course</h3>
         </Link>
       </div>
@@ -38,4 +39,4 @@ const Card: FC<iProps> = ({ data }) => {
   );
 };
 
-export default Card;
+

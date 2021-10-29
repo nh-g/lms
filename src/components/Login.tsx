@@ -41,14 +41,8 @@ export default function Login() {
     setLoggedIn(true);
     if (remember) localStorage.setItem("uid", uid);
 
-    if (user.role === "teacher") {
-      history.push("/course-edit")
-    } else if (user.role === "student") {
-      history.push("/course")
-    } 
-    // else{
-    //   history.push("/");
-    // }
+    history.push("/");
+
   }
 
   function onFailure(code) {

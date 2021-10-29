@@ -30,12 +30,12 @@ export default function Navigator() {
 
       <hr />
 
-      <a href="/course-edit" className="item-navigation">
+      <div className="item-navigation">
         <div className="label">Hello</div>
         <div className="icon">
           <h4>{user.username}</h4>
         </div>
-      </a>
+      </div>
 
       {user.role === "teacher" && (
         <Link to="/students" className="item-navigation ">
@@ -46,7 +46,7 @@ export default function Navigator() {
         </Link>
       )}
 
-      <a href="/course-edit" className="item-navigation selected">
+      <a href="/" className="item-navigation selected">
         <div className="icon">
           <FiBookOpen />
         </div>

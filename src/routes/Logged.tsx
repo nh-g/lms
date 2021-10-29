@@ -15,7 +15,6 @@ import Navigator from "components/shared/Navigator";
 export default function Logged() {
   const { user } = useAuth();
   const isTeacher = user.role === "teacher";
-  const isStudent = user.role === "student";
 
   return (
     <>
@@ -25,14 +24,12 @@ export default function Logged() {
       <div className="page template">
         <Navigator />
 
-        {isTeacher && <Route component={Teacher} path="/course-edit" />}
+        <Route exact path="/" component={isTeacher ? Teacher : Student} />
 
-        {isStudent && <Route component={Student} path="/course" />}
 
         <Route component={Course} path="/courses/:courseID" />
         <Route component={StudentList} path="/students" />
       </div>
-
     </>
   );
 }

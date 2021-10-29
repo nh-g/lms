@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { FaUserAlt, FaCalendarAlt } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
 import { FiBookOpen } from "react-icons/fi";
+import { RiContactsBookLine } from "react-icons/ri";
 
 // Project files
 import logo from "assets/brand/logo.png";
@@ -26,7 +27,7 @@ export default function Navigator() {
       <a href="/" className="nav-logo">
         <img src={logo} alt="Home" />
       </a>
-      
+
       <hr />
 
       <a href="/course-edit" className="item-navigation">
@@ -35,6 +36,15 @@ export default function Navigator() {
           <h4>{user.username}</h4>
         </div>
       </a>
+
+      {user.role === "teacher" && (
+        <Link to="/students" className="item-navigation ">
+          <div className="icon">
+            <RiContactsBookLine />
+          </div>
+          <div className="label">Students</div>
+        </Link>
+      )}
 
       <a href="/course-edit" className="item-navigation selected">
         <div className="icon">

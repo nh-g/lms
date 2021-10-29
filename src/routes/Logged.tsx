@@ -7,8 +7,8 @@ import Teacher from "components/Teacher";
 import Student from "components/Student";
 import Login from "components/Login";
 import SignUp from "components/Signup";
-import Header from "components/shared/Navigator";
 import Course from "components/Course";
+import StudentList from "components/StudentList"
 import Navigator from "components/shared/Navigator";
 
 export default function Logged() {
@@ -16,14 +16,19 @@ export default function Logged() {
   const isTeacher = user.role === "teacher";
   return (
     <>
-      {isTeacher ? (
-        <Route component={Teacher} path="/course-edit" />
-      ) : (
-        <Route component={Student} path="/course" />
-      )}
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />
-      <Route component={Course} path="/courses/:courseID" />
+      <div className="template">
+        <Navigator />
+
+        {isTeacher ? (
+          <Route component={Teacher} path="/course-edit" />
+        ) : (
+          <Route component={Student} path="/course" />
+        )}
+        <Route component={Course} path="/courses/:courseID" />
+        <Route component={StudentList} path="/students" />
+      </div>
     </>
   );
 }

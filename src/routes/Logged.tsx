@@ -4,8 +4,8 @@ import { Route } from "react-router-dom";
 
 // Project files
 import { useAuth } from "state/AuthProvider";
-import Teacher from "components/Teacher";
-import Student from "components/Student";
+import Teacher from "components/teacher";
+import Student from "components/student";
 import Login from "components/Login";
 import SignUp from "components/Signup";
 import Course from "components/Course";

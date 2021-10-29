@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 // Project files
-import fields from "assets/fields-recover.json";
+import fields from "assets/fields/fields-recover.json";
 import InputField from "./shared/InputField";
 
 export default function Recover() {

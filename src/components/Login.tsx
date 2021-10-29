@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 // Project files
-import fields from "assets/fields-login.json";
+import fields from "assets/fields/fields-login.json";
 import InputField from "./shared/InputField";
 import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";

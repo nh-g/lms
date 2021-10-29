@@ -12,12 +12,6 @@
     "type": "text"
   },
   {
-    "key": "content",
-    "label": "Course content",
-    "placeholder": "Course content",
-    "type": "text"
-  },
-  {
     "key": "link",
     "label": "Link",
     "placeholder": "http://www.youtube.com/...",

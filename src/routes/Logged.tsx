@@ -1,4 +1,5 @@
-//@ts-nocheck
+// @ts-nocheck
+// NPM packages
 import { Route } from "react-router-dom";
 
 // Project files
@@ -14,21 +15,24 @@ import Navigator from "components/shared/Navigator";
 export default function Logged() {
   const { user } = useAuth();
   const isTeacher = user.role === "teacher";
+  const isStudent = user.role === "student";
+
   return (
     <>
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />
-      <div className="template">
+
+      <div className="page template">
         <Navigator />
 
-        {isTeacher ? (
-          <Route component={Teacher} path="/course-edit" />
-        ) : (
-          <Route component={Student} path="/course" />
-        )}
+        {isTeacher && <Route component={Teacher} path="/course-edit" />}
+
+        {isStudent && <Route component={Student} path="/course" />}
+
         <Route component={Course} path="/courses/:courseID" />
         <Route component={StudentList} path="/students" />
       </div>
+
     </>
   );
 }

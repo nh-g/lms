@@ -21,7 +21,7 @@ export default function Logged() {
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />
 
-      <div className="page template">
+      <div className="template">
         <Navigator />
 
         <Route exact path="/" component={isTeacher ? Teacher : Student} />

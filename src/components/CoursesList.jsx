@@ -19,20 +19,19 @@ export default function CoursesList() {
   const { user } = useAuth();
   const isTeacher = user.role === "teacher";
 
-
   return (
     <>
       {courses.loading === true && <Spinner />}
       {courses.error !== null && <BoxError />}
 
       {(!courses.loading && courses.error) === null && (
-        <section className="cards">
+        <>
           {isTeacher ? (
             <MappingList Component={CardInTeacherPage} mapData={courses.data} />
           ) : (
             <MappingList Component={CardInStudentPage} mapData={courses.data} />
           )}
-        </section>
+        </>
       )}
     </>
   );

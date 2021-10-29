@@ -13,6 +13,24 @@
 	display: flex
 	justify-content: center
 
+.page 
+	width: 100% // otherwise the gird make it super narrow
+	margin: 0 $space-medium
+
+	.header 
+		max-width: 468px
+		margin-bottom: $space-small
+
+	.title 
+		max-width: 320px
+		margin-bottom: $space-small
+		box-sizing: border-box
+		padding-left: $space-medium
+		border-left: $space-small solid
+		border-color: $dark
+
+	.description 
+		color: $grayLight
 
 @media ( min-width: $desktopBreakpoint) and (orientation: landscape) 
 	.template 
@@ -20,5 +38,17 @@
 		grid-template-rows: none
 		grid-template-areas: "navbar page-container"
 
+	.page 
+			position: relative
+			box-sizing: border-box
+			max-width: 960px
+			margin: 0 $space-big
+			padding-top: $space-big
+
+			.header 
+				margin-bottom: $space-big
+
+			.title 
+				margin-bottom: $space-big
 
 

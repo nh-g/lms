@@ -40,3 +40,18 @@ export async function signIn(email: string, password: string) {
   }
   return account;
 }
+
+export async function logout() {
+  const account = { isLoggout: false, payload: "" };
+
+  try {
+    await signOut(authInstance);
+    account.isLoggout = true;
+    account.payload = "Logout successfully";
+  } catch (error: any) {
+    console.error("authentification.js error", error);
+    account.payload = error.code;
+  }
+
+  return account;
+}

@@ -5,6 +5,7 @@ import { useState } from "react";
 import useFetch from "hooks/useFetch";
 import { useAuth } from "state/AuthProvider";
 import { useCourses } from "state/CoursesProvider";
+import { useUser } from "state/UserProvider";
 
 import CardInTeacherPage from "./teacher/Card";
 import CardInStudentPage from "./student/Card";
@@ -16,8 +17,10 @@ export default function CoursesList() {
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
 
-  const { user } = useAuth();
+  const { user } = useUser();
   const isTeacher = user.role === "teacher";
+
+  console.log("CourseList", user)
 
   return (
     <>

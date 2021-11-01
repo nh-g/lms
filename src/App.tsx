@@ -12,28 +12,35 @@ import Footer from "components/shared/Footer";
 import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
+import { useUser } from "state/UserProvider";
 export default function App() {
   // Global state
-  const { loggedIn, setLoggedIn, setUser } = useAuth();
+  const { loggedIn, setLoggedIn, uid } = useAuth();
+  const { setUser } = useUser();
 
   //Local state
   const [status, setStatus] = useState(0); // 0 loading, 1 ready, 2 error
 
   // Methods
   const fetchUser = useCallback(
-    async (path) => {
-      const uid = localStorage.getItem("uid");
-      if (uid) {
+    async (path, uid) => {
+      if (uid === "no user") {
+        setStatus(1);
+      } else if (uid !== "") {
         const user = await getDocument(path, uid);
+
         setUser(user);
         setLoggedIn(true);
+        setStatus(1);
       }
-      setStatus(1);
     },
-    [setUser, setLoggedIn]
+    [setLoggedIn, setUser]
   );
+  useEffect(() => {
+    fetchUser("users", uid);
+  }, [fetchUser, uid]);
 
-  useEffect(() => fetchUser("users"), [fetchUser]);
+  console.log("APP.jsx", status);
 
   return (
     <div className="App">

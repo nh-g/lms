@@ -1,11 +1,11 @@
 import useFetch from "hooks/useFetch";
-import { useUsers } from "state/UsersProvider";
+import { useUser } from "state/UserProvider";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
 import kickout from "assets/images/kickout.png";
 
 export default function StudentList() {
-  const { dispatchUsers } = useUsers();
+  const { dispatchUsers } = useUser();
   const users = useFetch("users", dispatchUsers); //TODO make dispatch return only students if possible
 
   const students = users.data.filter((item) => {

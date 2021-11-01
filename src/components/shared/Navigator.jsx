@@ -8,15 +8,16 @@ import { RiContactsBookLine } from "react-icons/ri";
 // Project files
 import logo from "assets/brand/logo.png";
 import { useAuth } from "state/AuthProvider";
-
+import { useUser } from "state/UserProvider";
 export default function Navigator() {
   // Global state
-  const { user, setUser, setLoggedIn } = useAuth();
+  // const { user, setUser, setLoggedIn } = useAuth();
   const history = useHistory();
+  const { setLoggedIn } = useAuth();
+  const {user, setUser} = useUser()
 
   // Methods
   function onLogout() {
-    localStorage.setItem("uid", "");
     setUser({});
     setLoggedIn(false);
     history.push("/login");

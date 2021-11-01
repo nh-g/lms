@@ -2,13 +2,13 @@ import CoursesList from "components/CoursesList";
 
 export default function Student() {
   return (
-    <div id="dashboard-student" className="page-container">
-        <div className="page">
-          <h1>Home</h1>
-          <div className="grid-container">
-            <CoursesList />
-          </div>
+    <div id="dashboard" className="page-container">
+      <div className="page">
+        <h1>Home</h1>
+        <div className="grid-container">
+          <CoursesList />
         </div>
+      </div>
     </div>
   );
 }

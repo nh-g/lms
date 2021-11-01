@@ -9,10 +9,10 @@ export default function useFetch(collection, dispatch) {
   const [loading, setLoading] = useState(true);
 
   // Methods
-  async function fetchData(someDatabase, someCollection) {
+  async function fetchData(database, collection) {
     try {
-      const response = await getCollection(someDatabase, someCollection);
-      dispatch({ type: "SET_DATA", payload: someCollection });
+      const response = await getCollection(database, collection);
+      dispatch({ type: "SET_DATA", payload: collection });
       setData(response);
     } catch (e) {
       setError(e);

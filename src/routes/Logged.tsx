@@ -12,8 +12,11 @@ import Course from "components/course";
 import StudentList from "components/StudentList"
 import Navigator from "components/shared/Navigator";
 
+import { useUser } from "state/UserProvider";
+
 export default function Logged() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const { user } = useUser();
   const isTeacher = user.role === "teacher";
 
   return (

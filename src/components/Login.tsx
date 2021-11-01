@@ -9,17 +9,23 @@ import InputField from "./shared/InputField";
 import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";
 import { useAuth } from "state/AuthProvider";
+import { useUser } from "state/UserProvider";
 import logo from '../assets/brand/logo.png';
 
 export default function Login() {
-  // Global states
-  const { setLoggedIn, user, setUser } = useAuth();
+  // // Global states
+  // const { setLoggedIn, user, setUser } = useAuth();
+  // Global state
+  //@ts-ignore
+  const { setUser } = useUser();
+  //@ts-ignore
+  const { setLoggedIn } = useAuth();
+
   const history = useHistory();
 
-  console.log("User", user)
   //Local states
   const [form, setForm] = useState({ email: "", password: "" });
-  const [remember, setRemember] = useState(false);
+  // const [remember, setRemember] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   // Methods
@@ -39,10 +45,9 @@ export default function Login() {
     const document = await getDocument("users", uid);
     setUser(document);
     setLoggedIn(true);
-    if (remember) localStorage.setItem("uid", uid);
+    // if (remember) localStorage.setItem("uid", uid);
 
     history.push("/");
-
   }
 
   function onFailure(code) {
@@ -67,14 +72,14 @@ export default function Login() {
 
         {Fields}
         <p>{errorMessage}</p>
-        <label className="remember">
+        {/* <label className="remember">
           <input
             type="checkbox"
             checked={remember}
             onChange={() => setRemember(!remember)}
           />
           <h4>Remember me</h4>
-        </label>
+        </label> */}
         <button className="btn btn-main">
           <h4>Log in</h4>
         </button>

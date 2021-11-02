@@ -1,9 +1,12 @@
-//@ts-nocheck
 // NPM packages
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
+
+// Project files
 import { authInstance } from "./firebase";
 
 export async function createAccount(email: string, password: string) {
@@ -17,8 +20,8 @@ export async function createAccount(email: string, password: string) {
     );
     account.isCreated = true;
     account.payload = userCredential.user.uid;
-  } catch (error) {
-    console.error("auth,js error", error);
+  } catch (error: any) {
+    console.error("Authentication error", error);
     account.payload = error.code;
   }
   return account;
@@ -35,23 +38,36 @@ export async function signIn(email: string, password: string) {
     );
     account.payload = userCredential.user.uid;
     account.isLogged = true;
-  } catch (error) {
+  } catch (error:any) {
     account.payload = error.message;
   }
   return account;
 }
 
-export async function logout() {
-  const account = { isLoggout: false, payload: "" };
+export async function logOut() {
+  const account = { isLogOut: false, payload: "" };
 
   try {
     await signOut(authInstance);
-    account.isLoggout = true;
+    account.isLogOut = true;
     account.payload = "Logout successfully";
   } catch (error: any) {
-    console.error("authentification.js error", error);
+    console.error("Authentication error", error);
     account.payload = error.code;
   }
 
+  return account;
+}
+
+export async function reset(email: string) {
+  const account = { isReset: false, payload: "" };
+
+  try {
+    await sendPasswordResetEmail(authInstance, email);
+    account.payload = "A request has been received to change your password. A link to reset your password has been sent to your email ";
+    account.isReset = true;
+  } catch (error: any) {
+    account.payload = error.message;
+  }
   return account;
 }

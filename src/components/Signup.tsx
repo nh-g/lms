@@ -1,7 +1,7 @@
 //@ts-nocheck
 // NPM Packages
 import { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // Project files
 import fields from "assets/fields-signup.json";
@@ -33,12 +33,9 @@ export default function Signup() {
 
   async function onSuccess(uid) {
     const newUser = { username: form.username, role: "student" };
-    // 1.TODO create a user in the database using the UID as the document id.
     await createDocumentWithId("users", uid, newUser);
-    // 2. update global state: user and loggedin
     setLoggedIn(true);
     setUser(newUser);
-    // 3. redirect to home
     history.push("/");
   }
 
@@ -66,8 +63,10 @@ export default function Signup() {
         </button>
       </form>
       <p className="optional-action">
-        <Link to="/recover">
-          <strong> Forgot password? </strong>{" "}
+        <Link to="/login">
+          <strong>
+            Do you have an account? <span>Log in</span>
+          </strong>
         </Link>
       </p>
     </main>

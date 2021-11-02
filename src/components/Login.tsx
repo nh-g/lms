@@ -65,18 +65,16 @@ export default function Login() {
 
         {Fields}
         <p>{errorMessage}</p>
-        {/* <label className="remember">
-          <input
-            type="checkbox"
-            checked={remember}
-            onChange={() => setRemember(!remember)}
-          />
-          <h4>Remember me</h4>
-        </label> */}
         <button className="btn btn-main">
           <h4>Log in</h4>
         </button>
       </form>
+      
+      <p className="optional-action">
+        <Link to="/password-reset">
+          <strong> Forgot your password? </strong>{" "}
+        </Link>
+      </p>
       <p className="optional-action">
         <Link to="/signup">
           <strong> Create a new account</strong>

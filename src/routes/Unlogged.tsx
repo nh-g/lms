@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Login from "components/Login";
 import SignUp from "components/Signup";
 import Landing from "components/Landing";
-import Recover from "components/Recover";
+import ResetPassword from "components/ResetPassword";
 
 export default function Unlogged() {
   return (
@@ -13,7 +13,7 @@ export default function Unlogged() {
       <Route component={Landing} exact path="/" />
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />
-      <Route component={Recover} path="/recover" />
+      <Route component={ResetPassword} path="/password-reset" />
     </>
   );
 }

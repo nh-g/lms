@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import Modal from "./Modal";
 
 import Placeholder from "assets/brand/holder.png";
+import Delete from "components/shared/Delete";
 
 interface iProps {
   item: object;
 }
-export default function  Card({ item }:iProps) {
+export default function Card({ item }: iProps) {
   // @ts-nocheck
   // const [isOpen, setIsOpen] = useState(false);
 
-  const { id, title,  imageURL } = item;
+  // const { id, title, imageURL } = item;
 
-  const Image = imageURL === "" ? Placeholder : imageURL;
-
+  const Image = item.imageURL === "" ? Placeholder : item.imageURL;
 
   return (
     <div className="card">
@@ -46,10 +46,13 @@ export default function  Card({ item }:iProps) {
         <img src={Image} alt="user generated content" className="image" />
       </div>
 
-      <div className="label">{title}</div>
+      <div className="label">
+        {item.title}
+        <div className="admin-options">
+          <Delete path="courses" dataSelected={item} />
+        </div>
+      </div>
       {/* <p className="description">{description}</p> */}
     </div>
   );
-};
-
-
+}

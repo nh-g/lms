@@ -9,16 +9,16 @@ import { RiContactsBookLine } from "react-icons/ri";
 import logo from "assets/brand/logo.png";
 import { useAuth } from "state/AuthProvider";
 import { useUser } from "state/UserProvider";
-import { logout } from "scripts/auth";
+import { logOut } from "scripts/auth";
 export default function Navigator() {
   // Global state
   const history = useHistory();
   const { setLoggedIn } = useAuth();
-  const {user, setUser} = useUser()
+  const { user, setUser } = useUser();
 
   // Methods
   function onLogout() {
-    const account = await logout();
+    const account = logOut();
     console.log("Account logging out", account);
     setLoggedIn(false);
     setUser(null);

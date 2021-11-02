@@ -28,18 +28,6 @@ export async function createDocumentWithId(
   return id;
 }
 
-//CREATE CATEGORY
-/* export async function createCategory(someCategory, someImage) {
-  let newImageURL = "";
-  if (typeof someImage === "object") {
-    newImageURL = await uploadImage(firebaseInstance, someImage);
-  } else {
-    newImageURL = someImage;
-  }
-  const newCategory = { ...someCategory, imageURL: newImageURL };
-  createDoc(database, "categories", newCategory);
-  alert(newCategory.title + " successfully added to categories");
-} */
 
 // Read files
 export async function getCollection(db: Firestore, path: string) {

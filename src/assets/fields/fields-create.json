@@ -2,25 +2,15 @@
   {
     "key": "title",
     "label": "Title",
-    "placeholder": "Course title",
-    "type": "text"
+    "placeholder": "Write a course name",
+    "type": "input",
+    "rows": 3
   },
   {
     "key": "description",
     "label": "Description",
-    "placeholder": "Short description",
-    "type": "text"
-  },
-  {
-    "key": "link",
-    "label": "Link",
-    "placeholder": "http://www.youtube.com/...",
-    "type": "text"
-  },
-  {
-    "key": "imageURL",
-    "label": "Image link",
-    "placeholder": "http://www.unsplash.com/someimage.png",
-    "type": "text"
+    "placeholder": "Description for the course",
+    "type": "textarea",
+    "rows": 5
   }
 ]

@@ -11,7 +11,7 @@ export default function  Card({ item }:iProps) {
   // @ts-nocheck
   // const [isOpen, setIsOpen] = useState(false);
 
-  const { id, title, description, imageURL } = item;
+  const { id, title,  imageURL } = item;
 
   const Image = imageURL === "" ? Placeholder : imageURL;
 
@@ -47,7 +47,7 @@ export default function  Card({ item }:iProps) {
       </div>
 
       <div className="label">{title}</div>
-      <p className="description">{description}</p>
+      {/* <p className="description">{description}</p> */}
     </div>
   );
 };

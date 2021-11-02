@@ -5,11 +5,11 @@ import { Link, useHistory } from "react-router-dom";
 
 // Project files
 import fields from "assets/fields/fields-signup.json";
-import InputField from "./shared/InputField";
+import InputField from "../shared/InputField";
 import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";
 import { createDocumentWithId } from "scripts/fireStore";
-import logo from "../assets/brand/logo.png";
+import logo from "../../assets/brand/logo.png";
 
 export default function Signup() {
   //Local states

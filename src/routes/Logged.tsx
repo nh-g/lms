@@ -5,11 +5,11 @@ import { Route } from "react-router-dom";
 // Project files
 import Teacher from "components/teacher";
 import Student from "components/student";
-import Login from "components/Login";
-import SignUp from "components/Signup";
+import Login from "components/authentication/Login";
+import SignUp from "components/authentication/Signup";
 import Course from "components/course";
-import StudentList from "components/StudentList"
-import Navigator from "components/shared/Navigator";
+import StudentList from "components/teacher/StudentList"
+import Navigator from "components/Navigator";
 import Profile from "components/profile";
 
 import { useUser } from "state/UserProvider";

@@ -1,9 +1,9 @@
 // Project files
 import useFetch from "hooks/useFetch";
 import { useUser } from "state/UserProvider";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
-import Delete from "./shared/Delete";
+import Spinner from "../shared/Spinner";
+import BoxError from "../shared/BoxError";
+import Delete from "../shared/Delete";
 
 export default function StudentList() {
   const { setUser } = useUser();

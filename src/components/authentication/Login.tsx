@@ -5,12 +5,12 @@ import { Link, useHistory } from "react-router-dom";
 
 // Project files
 import fields from "assets/fields/fields-login.json";
-import InputField from "./shared/InputField";
+import InputField from "../shared/InputField";
 import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";
 import { useAuth } from "state/AuthProvider";
 import { useUser } from "state/UserProvider";
-import logo from '../assets/brand/logo.png';
+import logo from '../../assets/brand/logo.png';
 
 export default function Login() {
   // Global state

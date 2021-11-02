@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Project files
 import fields from "assets/fields/fields-recover.json";
-import InputField from "./shared/InputField";
+import InputField from "../shared/InputField";
 import { reset } from "scripts/auth";
 
 export default function ResetPassword() {

@@ -7,7 +7,7 @@ import { useAuth } from "state/AuthProvider";
 import { useCourses } from "state/CoursesProvider";
 import { useUser } from "state/UserProvider";
 
-import CardInTeacherPage from "./teacher/Card";
+import CardInTeacherPage from "./teacher/CardCourse";
 import CardInStudentPage from "./student/Card";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";

@@ -1,47 +1,53 @@
+// Project files
 import useFetch from "hooks/useFetch";
 import { useUser } from "state/UserProvider";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
-import kickout from "assets/images/kickout.png";
+import Delete from "./shared/Delete";
 
 export default function StudentList() {
-  const { dispatchUsers } = useUser();
-  const users = useFetch("users", dispatchUsers); //TODO make dispatch return only students if possible
+  const { setUser } = useUser();
+  const users = useFetch("users", setUser);
 
   const students = users.data.filter((item) => {
     return item.role === "student";
   });
 
-  function handleDelete(event) {
-    event.preventDefault();
-    if (window.confirm("Are you sure ?")) {
-      alert("Student deleted");
-    }
-  }
-
-  // Components
-  const Students = students.map((item) => {
+  const StudentList = students.map((item) => {
     return (
-      <li key={item.id} className="student-card">
-        <h3>
-          {item.username} - {item.role}
-        </h3>
-        <button className="btn btn-delete" onClick={handleDelete}>
-          <img src={kickout} alt="out" />
-          <h4>kick out</h4>
-        </button>
-      </li>
+      <tr key={item.id}>
+        <td>{item.username}</td>
+        <td>{item.role}</td>
+        <td className="description-students ">{item.id}</td>
+        <td className="admin-options">
+          <Delete dataSelected={item} path="users" />
+        </td>
+      </tr>
     );
   });
   return (
-    <>
-      {users.loading === true && <Spinner />}{" "}
-      {users.error !== null && <BoxError />}
-      {(!users.loading && users.error) === null && (
-        <>
-          <ul className="students">{Students}</ul>
-        </>
-      )}
-    </>
+    <div id="dashboard" className="page-container">
+      <div className="page">
+        <header className="header">
+          <h1 className="title">Student List</h1>
+          <p className="description">
+            List of registered students. Can remove selected student by clicking Delete button. 
+          </p>
+        </header>
+
+        {users.loading === true && <Spinner />}
+        {users.error !== null && <BoxError />}
+        {(!users.loading && users.error) === null && students.length > 0 ? (
+          <>
+            <table id="admin-table">
+              {StudentList}
+            </table>
+          </>
+        ) : (
+          "No student to show"
+        )}
+
+      </div>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 // Project files
-import fields from "assets/fields-signup.json";
+import fields from "assets/fields/fields-signup.json";
 import InputField from "./shared/InputField";
 import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";

@@ -8,6 +8,7 @@ import Delete from "./shared/Delete";
 export default function StudentList() {
   const { setUser } = useUser();
   const users = useFetch("users", setUser);
+  // TODO: fix fetching only students because current bug: Navigator greeting disappears.
 
   const students = users.data.filter((item) => {
     return item.role === "student";

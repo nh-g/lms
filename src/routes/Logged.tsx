@@ -3,7 +3,6 @@
 import { Route } from "react-router-dom";
 
 // Project files
-import { useAuth } from "state/AuthProvider";
 import Teacher from "components/teacher";
 import Student from "components/student";
 import Login from "components/Login";
@@ -11,11 +10,12 @@ import SignUp from "components/Signup";
 import Course from "components/course";
 import StudentList from "components/StudentList"
 import Navigator from "components/shared/Navigator";
+import Profile from "components/profile";
 
 import { useUser } from "state/UserProvider";
 
+
 export default function Logged() {
-  // const { user } = useAuth();
   const { user } = useUser();
   const isTeacher = user.role === "teacher";
 
@@ -29,9 +29,9 @@ export default function Logged() {
 
         <Route exact path="/" component={isTeacher ? Teacher : Student} />
 
-
         <Route component={Course} path="/courses/:courseID" />
         <Route component={StudentList} path="/students" />
+        <Route component={() => <Profile user = {user}/>} path={`/profile/${user.id}`} />
       </div>
     </>
   );

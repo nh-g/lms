@@ -2,36 +2,17 @@
   {
     "key": "title",
     "label": "Title",
-    "placeholder": "Course title",
+    "placeholder": "Write a course name",
     "mode": "edit",
-    "type": "text"
+    "type": "text",
+    "rows": 3
   },
   {
     "key": "description",
     "label": "Description",
-    "placeholder": "Short description",
+    "placeholder": "Description for the course",
     "mode": "edit",
-    "type": "text"
-  },
-  {
-    "key": "content",
-    "label": "Course content",
-    "placeholder": "Course content",
-    "mode": "edit",
-    "type": "text"
-  },
-  {
-    "key": "link",
-    "label": "Link",
-    "placeholder": "http://www.youtube.com/...",
-    "mode": "edit",
-    "type": "text"
-  },
-  {
-    "key": "imageURL",
-    "label": "Image link",
-    "placeholder": "http://www.unsplash.com/someimage.png",
-    "mode": "edit",
-    "type": "text"
+    "type": "text",
+    "rows": 3
   }
 ]

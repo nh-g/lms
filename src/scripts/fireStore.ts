@@ -47,16 +47,17 @@ export async function getDocument(path: string, id: string) {
 }
 
 // Update file
-export async function updateDocument(
-  db: Firestore,
-  path: string,
-  id: string,
-  data: object
-) {
-  const docReference = doc(db, path, id);
+export async function updateDocument(path: string, id: string, data: object) {
+  const docReference = doc(firestoreInstance, path, id);
+  let updatedCourse = { ...data };
+  // if (data.files !== [] && data.files[0].size) {
+  //   const field = await getUrlNameArray(data.files);
+  //   updatedCourse.files = field;
+  // }
 
-  await updateDoc(docReference, data as DocumentData);
+  await updateDoc(docReference, updatedCourse);
 }
+
 
 // Delete file
 export async function deleteDocument(path: string, id: string) {

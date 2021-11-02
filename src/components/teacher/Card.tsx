@@ -1,58 +1,66 @@
 // @ts-nocheck
-import { Link } from "react-router-dom";
-import Modal from "./Modal";
+// NPM packages
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import Placeholder from "assets/brand/holder.png";
 import Delete from "components/shared/Delete";
+import ButtonEdit from "components/shared/ButtonEdit";
+import { updateDocument } from "scripts/fireStore";
+import InputEditable from "./InputEditable";
+import fields from "assets/fields/fields-edit.json";
 
 interface iProps {
   item: object;
 }
 export default function Card({ item }: iProps) {
-  // @ts-nocheck
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // const { id, title, imageURL } = item;
-
+  
   const Image = item.imageURL === "" ? Placeholder : item.imageURL;
 
+  const history = useHistory();
+
+  const [form, setForm] = useState(item);
+
+  async function onSubmit(event) {
+    if (window.confirm("Are you sure to update content?")) {
+      event.preventDefault();
+      await updateDocument("courses", item.id, { ...item, ...form });
+      alert("Course successfully updated");
+      history.push("/");
+    }
+  }
+
+  function onChange(key, value) {
+    const field = { [key]: value };
+    setForm({ ...form, ...field });
+  }
+
+  //Components
+  const TitleDescription = fields.map((inputField) => (
+    <InputEditable
+      key={inputField.key}
+      options={inputField}
+      state={form[inputField.key]}
+      onChange={onChange}
+    />
+  ));
+
   return (
-    <div className="card">
-      {/* <Modal
-        type="edit"
-        data={item}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      >
-        Edit course
-      </Modal> */}
-
-      {/* <h2 className="title">{item.title}</h2>
-      <p className="description">{item.description}</p>
-      <img src={item.imageURL} alt="img" />
-      <div className="menu">
-        <button onClick={() => setIsOpen(true)}>
-          <h3>Edit</h3>
-        </button>
-
-        <button className="btn">
-          <h3>Delete</h3>
-        </button>
-        <Link to={"/courses/" + item.id}>
-          <h3>View Course</h3>
-        </Link>
-      </div> */}
-      <div className="image-container">
-        <img src={Image} alt="user generated content" className="image" />
-      </div>
-
-      <div className="label">
-        {item.title}
-        <div className="admin-options">
-          <Delete path="courses" dataSelected={item} />
-        </div>
-      </div>
-      {/* <p className="description">{description}</p> */}
-    </div>
+    <tr>
+      {TitleDescription}
+      <td>
+        <img
+          src={Image}
+          alt="user generated content"
+          className="custom-file-chooser"
+        />
+      </td>
+      <td className="admin-options">
+        <Delete path="courses" dataSelected={item} />
+      </td>
+      <td className="admin-options">
+        <ButtonEdit handleClick={onSubmit}/>
+      </td>
+    </tr>
   );
 }

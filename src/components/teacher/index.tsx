@@ -18,9 +18,11 @@ export default function Teacher() {
         <br />
         <h2>Active Courses</h2>
         <br />
-        <div className="grid-container">
+        <table id="admin-table">
           <CoursesList />
-        </div>
+        </table>
+
+        {/* </div> */}
       </div>
     </div>
   );

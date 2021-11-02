@@ -20,7 +20,8 @@ export default function Delete({ dataSelected, path }) {
         onClick={handleDelete}
       >
         <h4>
-          <RiDeleteBinLine /> Delete
+          <RiDeleteBinLine /> 
+          Delete
         </h4>
       </button>
   );

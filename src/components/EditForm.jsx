@@ -7,32 +7,27 @@ import fields from "assets/fields-edit.json";
 import InputField from "./shared/InputField";
 import { createDoc } from "scripts/fireStore";
 
-export default function CreateForm({ onClose, data }) {
+export default function EditForm({ onClose, data }) {
   //Local states
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    link: "",
-    imageURL: "",
-  });
+  const [form, setForm] = useState(data);
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
-  console.log(data);
-
+  console.log(form);
   // Methods
   function onChange(key, value) {
     const field = { [key]: value };
     setForm({ ...form, ...field });
   }
   async function onSubmit(e) {
-    e.preventDefault();
-    setErrorMessage("");
-    const newCourse = { ...form };
-    //await createDoc("courses", newCourse);
-    alert("Course updated");
-    onClose();
-    history.push("/");
+    if (window.confirm("Do you confirm the changes ?")) {
+      e.preventDefault();
+      setErrorMessage("");
+      await updateDocument("courses", data.id, { ...data, ...form });
+      alert("Course successfully updated");
+      onClose();
+      history.push("/");
+    }
   }
 
   //Components
@@ -40,7 +35,7 @@ export default function CreateForm({ onClose, data }) {
     <InputField
       key={item.key}
       options={item}
-      state={data[item.key]}
+      state={form[item.key]}
       onChange={onChange}
     />
   ));
@@ -48,6 +43,8 @@ export default function CreateForm({ onClose, data }) {
   return (
     <form onSubmit={onSubmit}>
       {Fields}
+      <InputLinks state={form} setForm={setForm} />
+      <InputFiles state={form} setForm={setForm} />
       <p>{errorMessage}</p>
       <button className="btn btn-main btn-140">
         <h4>Submit</h4>

@@ -1,0 +1,55 @@
+#admin-table
+    border-collapse: collapse
+    width: 100%
+    border: 1px solid $grayLight
+
+    tr
+        height: 45px
+        padding: 8px
+        border: 1px solid $grayLight
+
+
+        td
+            padding: 4px
+            border: 1px solid $grayLight
+
+
+        .table-title
+            width: 150px
+        
+        .description
+            border: none
+            width: 150px
+            display: -webkit-box
+            -webkit-line-clamp: 3
+            -webkit-box-orient: vertical
+            overflow: hidden
+            text-overflow: ellipsis
+            @media (min-width: $media-tablet)
+                width: auto            
+
+        .admin-options
+            width: 30px
+            h4
+                font-size: 12px
+
+        .custom-file-chooser 
+            background-color: $grayLight
+            border-radius: 4px
+            overflow: hidden
+            width: 55px
+            height: 40px
+
+            img 
+                object-fit: cover
+                vertical-align: middle
+
+        .custom-file-chooser input[type="file"] 
+            width: 0.1px
+            height: 0.1px
+            opacity: 0
+            overflow: hidden
+            position: absolute
+            z-index: -1
+
+

@@ -1,4 +1,4 @@
-import { uploadFile } from "../../scripts/cloudStorage";
+import { uploadFile } from "scripts/cloudStorage";
 import dataURLToFile from "../../scripts/upload-image/dataURLToFile";
 import readImage from "../../scripts/upload-image/read-image";
 import resizeImage from "../../scripts/upload-image/resizeImage";

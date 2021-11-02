@@ -11,6 +11,7 @@ import Course from "components/course";
 import StudentList from "components/teacher/StudentList"
 import Navigator from "components/Navigator";
 import Profile from "components/profile";
+import AddDocuments from "components/teacher/AddDocuments";
 
 import { useUser } from "state/UserProvider";
 
@@ -30,8 +31,13 @@ export default function Logged() {
         <Route exact path="/" component={isTeacher ? Teacher : Student} />
 
         <Route component={Course} path="/courses/:courseID" />
+        <Route component={AddDocuments} path="/course-edit/:courseID" />
+
         <Route component={StudentList} path="/students" />
-        <Route component={() => <Profile user = {user}/>} path={`/profile/${user.id}`} />
+        <Route
+          component={() => <Profile user={user} />}
+          path={`/profile/${user.id}`}
+        />
       </div>
     </>
   );

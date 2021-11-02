@@ -1,7 +1,7 @@
 // @ts-nocheck
 // NPM packages
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 // Project files
 
@@ -18,8 +18,6 @@ interface iProps {
 }
 export default function Card({ item }: iProps) {
   
-  const Image = item.imageURL === "" ? Placeholder : item.imageURL;
-
   const history = useHistory();
 
   const [form, setForm] = useState(item);
@@ -67,6 +65,9 @@ export default function Card({ item }: iProps) {
       </td>
       <td className="admin-options">
         <ButtonEdit handleClick={onSubmit} />
+      </td>
+      <td className="admin-options">
+        <Link to = {`/course-edit/${item.id}`}>...</Link>
       </td>
     </tr>
   );

@@ -1,6 +1,6 @@
 // Project files
 import CoursesList from "components/CoursesList";
-import InlineEditableTable from "./InlineEditableTable";
+import CreateForm from "./Create";
 
 export default function Teacher() {
 
@@ -14,15 +14,13 @@ export default function Teacher() {
             you leave the input field.
           </p>
         </header>
-        <InlineEditableTable />
+        <CreateForm />
         <br />
         <h2>Active Courses</h2>
         <br />
         <table id="admin-table">
           <CoursesList />
         </table>
-
-        {/* </div> */}
       </div>
     </div>
   );

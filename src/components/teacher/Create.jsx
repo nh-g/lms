@@ -1,14 +1,18 @@
 // NPM packages
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import {AiFillPlusCircle} from "react-icons/ai"
 
 // Project files
 import fields from 'assets/fields/fields-create.json'
 import { createDoc } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
+import ImageUploader from "components/shared/ImageUploader";
 
 export default function Create() {
   const history = useHistory();
+
+  const [imageURL, setImageURL] = useState("");
 
   const [form, setForm] = useState({
     title: "",
@@ -18,7 +22,8 @@ export default function Create() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const newCourse = { ...form };
+    const newCourse = { ...form};
+    newCourse.imageURL = imageURL;
     await createDoc("courses", newCourse);
     alert(`${form.title} course created`);
     history.push("/");
@@ -29,7 +34,6 @@ export default function Create() {
     setForm({ ...form, ...field });
   }
 
-  //Components
   const Fields = fields.map((item) => (
     <InputEditable
       key={item.key}
@@ -39,13 +43,25 @@ export default function Create() {
     />
   ));
 
+
+
   return (
-    <table style={{ width: "100%" }}>
+    <table className="create">
       <tr>
         {Fields}
-        <td>
-          <button className="btn btn-main btn-80" onClick={onSubmit}>
-            <h4>Add</h4>
+        <td className="custom-file-chooser">
+          <ImageUploader
+            imageURL={imageURL}
+            setImageURL={setImageURL}
+            title={form.title}
+          />
+        </td>
+        <td className="admin-options">
+          <button onClick={onSubmit}>
+            <h4>
+              <AiFillPlusCircle />
+              Create
+            </h4>
           </button>
         </td>
       </tr>

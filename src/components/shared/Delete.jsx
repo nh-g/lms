@@ -15,7 +15,6 @@ export default function Delete({ dataSelected, path }) {
 
   return (
       <button
-        // className="btn btn-main btn-32 delete"
         disabled={dataSelected === ""}
         onClick={handleDelete}
       >

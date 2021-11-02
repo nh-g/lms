@@ -1,7 +1,10 @@
+// NPM packages
 import { useRef } from "react";
+
+// Project files 
 import Editable from "./Editable";
+
 export default function InputEditable({ onChange, options, state }) {
-  // const inputRef = useRef();
   const textareaRef = useRef();
   const { key, placeholder, type, mode, rows } = options;
 

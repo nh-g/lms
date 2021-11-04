@@ -5,8 +5,6 @@ import { useParams, Link } from "react-router-dom";
 // Project files
 import { getCourseById } from "scripts/courses";
 import { useCourses } from "state/CoursesProvider";
-import Files from "../shared/Files";
-import Links from "../shared/Links";
 import useFetch from "hooks/useFetch";
 import Spinner from "../shared/Spinner";
 import BoxError from "../shared/BoxError";

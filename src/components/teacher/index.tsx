@@ -2,8 +2,8 @@
 import CoursesList from "components/CoursesList";
 import CreateForm from "./Create";
 
+// Naming convention this name sounds like an OOP class not a react component
 export default function Teacher() {
-
   return (
     <div id="dashboard" className="page-container">
       <div className="page">

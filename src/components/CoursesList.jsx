@@ -1,9 +1,5 @@
-// NPM Packages
-import { useState } from "react";
-
 //Local Files
 import useFetch from "hooks/useFetch";
-import { useAuth } from "state/AuthProvider";
 import { useCourses } from "state/CoursesProvider";
 import { useUser } from "state/UserProvider";
 
@@ -20,7 +16,7 @@ export default function CoursesList() {
   const { user } = useUser();
   const isTeacher = user.role === "teacher";
 
-  console.log("CourseList", user)
+  console.log("CourseList", user);
 
   return (
     <>

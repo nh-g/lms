@@ -5,18 +5,19 @@ import { Link, useHistory } from "react-router-dom";
 
 // Project files
 import fields from "assets/fields/fields-signup.json";
-import InputField from "../shared/InputField";
+import InputField from "components/shared/InputField";
 import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";
 import { createDocumentWithId } from "scripts/fireStore";
-import logo from "../../assets/brand/logo.png";
+import logo from "assets/brand/logo.png";
 
 export default function Signup() {
   //Local states
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [message, setMessage] = useState("");
   const history = useHistory();
-  const { setLoggedIn, setUser, user } = useAuth();
+  const { setLoggedIn } = useAuth();
+  const { setUser } = useUser();
 
   // Methods
   function onChange(key, value) {
@@ -33,6 +34,7 @@ export default function Signup() {
 
   async function onSuccess(uid) {
     const newUser = { username: form.username, role: "student" };
+
     await createDocumentWithId("users", uid, newUser);
     setLoggedIn(true);
     setUser(newUser);
@@ -42,6 +44,7 @@ export default function Signup() {
   function onFailure(code) {
     setMessage(code);
   }
+
   //Components
   const Fields = fields.map((item) => (
     <InputField
@@ -58,9 +61,9 @@ export default function Signup() {
         <img src={logo} className="logo" alt="circle with text" />
         <h3>Start becoming a empowering parent today</h3>
         {Fields}
-        <button className="btn btn-main">
-          <h4>sign up</h4>
-        </button>
+        <p>{message}</p>
+        {/* The button contained an heading inside a button -2  */}
+        <button className="btn btn-main">sign up</button>
       </form>
       <p className="optional-action">
         <Link to="/login">

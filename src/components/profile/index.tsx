@@ -1,10 +1,8 @@
-// @ts-nocheck
-interface iProps{
-    user: object;
-    username: string;
-    role: string
-}
-export default function Profile({ user }: iProps) {
+export default function Profile() {
+  // use the global profile
+  // fetch
+  // do the code
+
   return (
     <div id="dashboard" className="page-container">
       <div className="page">
@@ -15,8 +13,8 @@ export default function Profile({ user }: iProps) {
             you leave the input field.
           </p>
         </header>
-        <h2>{user.username}</h2>
-        <h2>{user.role}</h2>
+        {/* <h2>{user.username}</h2>
+        <h2>{user.role}</h2> */}
       </div>
     </div>
   );

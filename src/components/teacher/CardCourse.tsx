@@ -2,32 +2,30 @@
 // NPM packages
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files
-
-import Placeholder from "assets/brand/holder.png";
 import Delete from "components/shared/Delete";
 import ButtonEdit from "components/shared/ButtonEdit";
 import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import fields from "assets/fields/fields-edit.json";
 import ImageUploader from "components/shared/ImageUploader";
+import AddDocuments from "./AddDocuments";
 
 interface iProps {
   item: object;
 }
 export default function Card({ item }: iProps) {
-  
   const history = useHistory();
-
   const [form, setForm] = useState(item);
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
-
+  const [toggler, setToggler] = useState(false) 
 
   async function onSubmit(event) {
     if (window.confirm("Are you sure to update content?")) {
       event.preventDefault();
-      const updatedCourse = {...form}
+      const updatedCourse = { ...form };
       updatedCourse.imageURL = courseImageURL;
       await updateDocument("courses", item.id, { ...item, ...updatedCourse });
       alert("Course successfully updated");
@@ -40,7 +38,6 @@ export default function Card({ item }: iProps) {
     setForm({ ...form, ...field });
   }
 
-  //Components
   const TitleDescription = fields.map((inputField) => (
     <InputEditable
       key={inputField.key}
@@ -51,24 +48,32 @@ export default function Card({ item }: iProps) {
   ));
 
   return (
-    <tr>
-      {TitleDescription}
-      <td className="custom-file-chooser">
-        <ImageUploader
-          imageURL={courseImageURL}
-          setImageURL={setCourseImageURL}
-          title={form.title}
-        />
-      </td>
-      <td className="admin-options">
-        <Delete path="courses" dataSelected={item} />
-      </td>
-      <td className="admin-options">
-        <ButtonEdit handleClick={onSubmit} />
-      </td>
-      <td className="admin-options">
-        <Link to = {`/course-edit/${item.id}`}>...</Link>
-      </td>
-    </tr>
+    <>
+      <tr>
+        {TitleDescription}
+        <td className="custom-file-chooser">
+          <ImageUploader
+            imageURL={courseImageURL}
+            setImageURL={setCourseImageURL}
+            title={form.title}
+          />
+        </td>
+        <td className="admin-options">
+          <Delete path="courses" dataSelected={item} />
+        </td>
+        <td className="admin-options">
+          <ButtonEdit handleClick={onSubmit} />
+        </td>
+        <td className="admin-options">
+          <button onClick={() => setToggler(!toggler)}>
+            <h4>
+              <AiFillPlusCircle />
+              Add
+            </h4>
+          </button>
+        </td>
+      </tr>
+      {toggler && <AddDocuments item={item} />}
+    </>
   );
 }

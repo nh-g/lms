@@ -22,7 +22,7 @@ export default function Create() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const newCourse = { ...form};
+    let newCourse = { ...form};
     newCourse.imageURL = imageURL;
     await createDoc("courses", newCourse);
     alert(`${form.title} course created`);
@@ -42,8 +42,6 @@ export default function Create() {
       onChange={onChange}
     />
   ));
-
-
 
   return (
     <table className="create">

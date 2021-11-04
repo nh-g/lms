@@ -11,7 +11,6 @@ import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import fields from "assets/fields/fields-edit.json";
 import ImageUploader from "components/shared/ImageUploader";
-import AddDocuments from "./AddDocuments";
 
 interface iProps {
   item: object;
@@ -20,7 +19,6 @@ export default function Card({ item }: iProps) {
   const history = useHistory();
   const [form, setForm] = useState(item);
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
-  // const [toggler, setToggler] = useState(false) 
 
   async function onSubmit(event) {
     if (window.confirm("Are you sure to update content?")) {
@@ -66,22 +64,15 @@ export default function Card({ item }: iProps) {
         </td>
         <td className="admin-options">
           <Link to={"/course-edit/" + item.id}>
-            {" "}
-            ...
-            {/* <h4>
-              <AiFillPlusCircle />
-              Add
-            </h4> */}
+            <button>
+              <h4>
+                <AiFillPlusCircle />
+                Add
+              </h4>
+            </button>
           </Link>
-          {/* <button onClick={() => setToggler(!toggler)}>
-            <h4>
-              <AiFillPlusCircle />
-              Add
-            </h4>
-          </button> */}
         </td>
       </tr>
-      {/* {toggler && <AddDocuments item={item} />} */}
     </>
   );
 }

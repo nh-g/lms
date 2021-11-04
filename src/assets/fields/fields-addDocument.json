@@ -4,13 +4,13 @@
     "label": "Title",
     "placeholder": "Write a name describing the document",
     "type": "input",
-    "rows": 1
+    "rows": 3
   },
   {
     "key": "linkURL",
     "label": "LinkURL",
     "placeholder": "link URL of the document",
     "type": "textarea",
-    "rows": 1
+    "rows": 3
   }
 ]

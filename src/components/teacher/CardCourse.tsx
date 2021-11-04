@@ -20,7 +20,7 @@ export default function Card({ item }: iProps) {
   const history = useHistory();
   const [form, setForm] = useState(item);
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
-  const [toggler, setToggler] = useState(false) 
+  // const [toggler, setToggler] = useState(false) 
 
   async function onSubmit(event) {
     if (window.confirm("Are you sure to update content?")) {
@@ -65,15 +65,23 @@ export default function Card({ item }: iProps) {
           <ButtonEdit handleClick={onSubmit} />
         </td>
         <td className="admin-options">
-          <button onClick={() => setToggler(!toggler)}>
+          <Link to={"/course-edit/" + item.id}>
+            {" "}
+            ...
+            {/* <h4>
+              <AiFillPlusCircle />
+              Add
+            </h4> */}
+          </Link>
+          {/* <button onClick={() => setToggler(!toggler)}>
             <h4>
               <AiFillPlusCircle />
               Add
             </h4>
-          </button>
+          </button> */}
         </td>
       </tr>
-      {toggler && <AddDocuments item={item} />}
+      {/* {toggler && <AddDocuments item={item} />} */}
     </>
   );
 }

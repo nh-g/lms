@@ -32,7 +32,7 @@ export default function Logged() {
 
         <Route component={Course} path="/courses/:courseID" />
 
-        <Route component={AddDocuments} path="/course-edit/:courseID" />
+        <Route component={AddDocuments} exact path="/course-edit/:courseID" />
 
         <Route component={StudentList} path="/students" />
         

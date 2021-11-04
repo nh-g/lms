@@ -8,7 +8,7 @@ import fields from "assets/fields/fields-addDocument.json";
 import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 
-export default function CreateDocumentForm({item}) {
+export default function CreateDocumentForm({ item }) {
   const history = useHistory();
 
   const [form, setForm] = useState({
@@ -18,9 +18,12 @@ export default function CreateDocumentForm({item}) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    let updatedCourse = { ...item };
-    updatedCourse.links = form;
-    await updateDocument("courses", item.id, { ...item, ...updatedCourse });
+    const newCourse = { ...item };
+    const clonedLinks = [...newCourse.links];
+    clonedLinks.push(form);
+    newCourse.links = clonedLinks;
+
+    await updateDocument("courses", item.id, { ...item, ...newCourse });
     alert(`${form.title} document created`);
     history.push("/");
   }
@@ -39,21 +42,20 @@ export default function CreateDocumentForm({item}) {
     />
   ));
 
+
   return (
-    // <div>
-    //   <table className="create">
-        <tr>
-          {Fields}
-          <td className="admin-options">
-            <button onClick={onSubmit}>
-              <h4>
-                <AiFillPlusCircle />
-                Create
-              </h4>
-            </button>
-          </td>
-        </tr>
-    //   </table>
-    // </div>
+    <table className="create">
+      <tr>
+        {Fields}
+        <td className="admin-options">
+          <button onClick={onSubmit}>
+            <h4>
+              <AiFillPlusCircle />
+              Create
+            </h4>
+          </button>
+        </td>
+      </tr>
+    </table>
   );
 }

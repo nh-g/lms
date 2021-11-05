@@ -75,12 +75,12 @@ export default function Navigator() {
         <div className="label">Profile</div>
       </Link>
 
-      <a className="item-navigation " onClick={onLogout}>
+      <button className="item-navigation " onClick={onLogout}>
         <div className="icon">
           <AiOutlineLogout />
         </div>
         <div className="label">Logout</div>
-      </a>
+      </button>
     </nav>
   );
 }

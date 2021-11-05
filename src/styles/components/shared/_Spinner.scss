@@ -94,12 +94,12 @@
 
 .cloud {
 	background: #fff;
-	background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
-	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -moz-linear-gradient(to bottom,  #fff 5%, #f1f1f1 100%);
+	background: -webkit-gradient(linear, to right to bottom, to right to top, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+	background: -webkit-linear-gradient(to bottom,  #fff 5%,#f1f1f1 100%);
+	background: -o-linear-gradient(to bottom,  #fff 5%,#f1f1f1 100%);
+	background: -ms-linear-gradient(to bottom,  #fff 5%,#f1f1f1 100%);
+	background: linear-gradient(to bottom,  #fff 5%,#f1f1f1 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
 	
 	-webkit-border-radius: 100px;

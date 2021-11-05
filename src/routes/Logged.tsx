@@ -9,7 +9,7 @@ import Login from "components/authentication/Login";
 import SignUp from "components/authentication/Signup";
 import Course from "components/course";
 import StudentList from "components/teacher/StudentList"
-import Navigator from "components/Navigator";
+import Navigator from "components/shared/Navigator";
 import Profile from "components/profile";
 import AddDocuments from "components/teacher/AddDocuments";
 

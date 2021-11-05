@@ -8,7 +8,7 @@ import { useAuth } from "state/AuthProvider";
 import "./styles/styles.sass";
 import Logged from "routes/Logged";
 import UnLogged from "routes/Unlogged";
-import Footer from "components/Footer";
+import Footer from "components/shared/Footer";
 import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";

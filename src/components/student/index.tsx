@@ -1,4 +1,4 @@
-import CoursesList from "components/CoursesList";
+import CoursesList from "components/shared/CoursesList";
 
 export default function Student() {
   return (

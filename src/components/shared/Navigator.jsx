@@ -10,6 +10,7 @@ import logo from "assets/brand/logo.png";
 import { useAuth } from "state/AuthProvider";
 import { useUser } from "state/UserProvider";
 import { logOut } from "scripts/auth";
+
 export default function Navigator() {
   // Global state
   const history = useHistory();

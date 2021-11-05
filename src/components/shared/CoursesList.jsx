@@ -4,11 +4,11 @@ import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
 import { useUser } from "state/UserProvider";
 
-import CardInTeacherPage from "./teacher/CardCourse";
-import CardInStudentPage from "./student/CardCourse";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
-import MappingList from "./shared/MappingList";
+import CardInTeacherPage from "../teacher/CardCourse";
+import CardInStudentPage from "../student/CardCourse";
+import Spinner from "./Spinner";
+import BoxError from "./BoxError";
+import MappingList from "./MappingList";
 
 export default function CoursesList() {
   const { dispatchCourses } = useCourses();

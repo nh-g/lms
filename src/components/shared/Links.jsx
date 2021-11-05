@@ -1,17 +1,26 @@
+// NPM Packages
+import {BsFillFileCodeFill} from "react-icons/bs"
+
 export default function Links({ data }) {
-  const Links = data.links.map((item, index) => {
+  const Links = data.links.map((item) => {
     return (
-      <li key={item}>
-        <a href={item} rel="noreferrer" target="_blank">
-          <h4> External link {index + 1} ...</h4>
-        </a>
-      </li>
+      <a
+        href={item.linkURL}
+        rel="noreferrer"
+        target="_blank"
+        className="item-material"
+      >
+        <span class="icon">
+          <BsFillFileCodeFill />
+        </span>
+        <span class="label"> {item.title} </span>
+      </a>
     );
   });
 
   return (
-    <div className="links">
-      <ul>{Links}</ul>
+    <div className="list-material">
+      {Links}
     </div>
   );
 }

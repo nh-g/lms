@@ -9,6 +9,46 @@
 
   .list-material 
     margin-bottom: $space-small
+  h3
+    margin-bottom: $space-small
+  
+  .item-material 
+    display: flex
+    align-items: center
+    margin-bottom: $space-medium
+    color: $grayDark
+    text-decoration: none
+    overflow: hidden
+
+  .icon 
+    $size: 32px
+    flex-shrink: 0
+    width: $size
+    height: $size
+    line-height: $size
+    margin-right: $space-medium
+    background-color: #ff8a3c
+    color: white
+    font-size: 16px
+    text-align: center
+    border-radius: $space-small
+
+  small 
+    color: $grayDark
+
+  @media ( min-width: $media-tablet) 
+    .item-material 
+      margin-bottom: $space-big
+
+    .icon 
+      $size: 64px
+      position: relative // for the item # on the top
+      width: $size
+      height: $size
+      line-height: $size
+      font-size: 32px
+      border-radius: $space-medium
+
 
 @media ( min-width: $media-tablet) and (orientation: landscape) 
   .list-material 

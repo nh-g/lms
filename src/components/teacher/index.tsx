@@ -2,7 +2,7 @@
 import CoursesList from "components/shared/CoursesList";
 import CreateForm from "./Create";
 
-export default function Teacher() {
+export default function TeacherDashBoard() {
 
   return (
     <div id="dashboard" className="page-container">

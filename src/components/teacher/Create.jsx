@@ -44,7 +44,7 @@ export default function Create() {
   ));
 
   return (
-    <table className="create">
+    <table id="admin-table">
       <tr>
         {Fields}
         <td className="custom-file-chooser">

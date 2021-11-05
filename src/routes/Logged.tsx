@@ -3,7 +3,7 @@
 import { Route } from "react-router-dom";
 
 // Project files
-import Teacher from "components/teacher";
+import TeacherDashBoard from "components/teacher";
 import Student from "components/student";
 import Login from "components/authentication/Login";
 import SignUp from "components/authentication/Signup";
@@ -28,7 +28,7 @@ export default function Logged() {
       <div className="template">
         <Navigator />
 
-        <Route exact path="/" component={isTeacher ? Teacher : Student} />
+        <Route exact path="/" component={isTeacher ? TeacherDashBoard : Student} />
 
         <Route component={Course} path="/courses/:courseID" />
 

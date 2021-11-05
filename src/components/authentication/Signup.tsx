@@ -10,13 +10,15 @@ import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";
 import { createDocumentWithId } from "scripts/fireStore";
 import logo from "../../assets/brand/logo.png";
+import { useUser } from "state/UserProvider";
 
 export default function Signup() {
   //Local states
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [message, setMessage] = useState("");
   const history = useHistory();
-  const { setLoggedIn, setUser, user } = useAuth();
+  const { setLoggedIn } = useAuth();
+  const {setUser} = useUser(); 
 
   // Methods
   function onChange(key, value) {
@@ -58,6 +60,8 @@ export default function Signup() {
         <img src={logo} className="logo" alt="circle with text" />
         <h3>Start becoming a empowering parent today</h3>
         {Fields}
+        <p>{message}</p>
+
         <button className="btn btn-main">
           <h4>sign up</h4>
         </button>

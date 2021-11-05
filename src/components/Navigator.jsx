@@ -35,9 +35,7 @@ export default function Navigator() {
 
       <div className="item-navigation">
         <div className="label">Hello</div>
-        <div className="icon">
-          <h4>{user.username}</h4>
-        </div>
+        <span>{user.username}</span>
       </div>
 
       {user.role === "teacher" && (

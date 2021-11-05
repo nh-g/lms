@@ -40,8 +40,6 @@ export default function App() {
     fetchUser("users", uid);
   }, [fetchUser, uid]);
 
-  console.log("APP.jsx", status);
-
   return (
     <div className="App">
       {status === 0 && <Spinner />}

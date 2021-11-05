@@ -17,8 +17,6 @@ export default function CoursesList() {
   const { user } = useUser();
   const isTeacher = user.role === "teacher";
 
-  console.log("CourseList", user)
-
   return (
     <>
       {courses.loading === true && <Spinner />}

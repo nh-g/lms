@@ -14,8 +14,6 @@ export function UserProvider({ children }: iProps) {
   //@ts-ignore
   const [user, setUser] = useState<iUser>({});
 
-  console.log("UserProvider", user)
-
   return (
     //@ts-ignore
     <UsersContext.Provider value={{ user, setUser }}>

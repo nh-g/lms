@@ -1,4 +1,4 @@
-import "../../styles/components/shared/_Spinner.scss";
+import "../../styles/components/_Spinner.scss";
 export default function Spinner() {
   return (
     <div id="background-wrap">

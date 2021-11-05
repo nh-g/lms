@@ -30,7 +30,7 @@ export default function useFetch(collection, dispatch) {
 
   useEffect(() => {
     fetchData(collection, dispatch);
-  }, []);
+  }, [collection, dispatch, fetchData]);
 
   return { data, error, loading, setData };
 }

@@ -28,7 +28,6 @@ export async function createDocumentWithId(
   return id;
 }
 
-
 // Read files
 export async function getCollection(db: Firestore, path: string) {
   const collectionReference = collection(db, path);
@@ -57,7 +56,6 @@ export async function updateDocument(path: string, id: string, data: object) {
 
   await updateDoc(docReference, updatedCourse);
 }
-
 
 // Delete file
 export async function deleteDocument(path: string, id: string) {

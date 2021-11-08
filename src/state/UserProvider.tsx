@@ -8,7 +8,7 @@ interface iProps {
   children: React.ReactNode;
 }
 
-const UsersContext = createContext(null)
+const UsersContext = createContext(null);
 
 export function UserProvider({ children }: iProps) {
   //@ts-ignore

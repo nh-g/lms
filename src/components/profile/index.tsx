@@ -1,8 +1,8 @@
 // @ts-nocheck
-interface iProps{
-    user: object;
-    username: string;
-    role: string
+interface iProps {
+  user: object;
+  username: string;
+  role: string;
 }
 export default function Profile({ user }: iProps) {
   return (

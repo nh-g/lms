@@ -11,6 +11,8 @@ export default function coursesReducer(state, action) {
       throw new Error(`No action type found ${action.type}`);
   }
 }
+
+// Reducers should have validation code, thats the whole purpose. Otherwise we just use useState to change the values.
 function createCourse(state, action) {
   const { payload } = action;
   return [...state, payload];

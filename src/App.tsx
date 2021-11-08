@@ -36,6 +36,7 @@ export default function App() {
     },
     [setLoggedIn, setUser]
   );
+
   useEffect(() => {
     fetchUser("users", uid);
   }, [fetchUser, uid]);
@@ -44,6 +45,7 @@ export default function App() {
     <div className="App">
       {status === 0 && <Spinner />}
       {status === 2 && <BoxError />}
+      {/* Readibility, this can be refactor to make it easy to read -1 */}
       {status === 1 && (
         <BrowserRouter>
           <Switch>
@@ -51,6 +53,7 @@ export default function App() {
               <Logged />
             ) : (
               <>
+                {/* Don't add non Routes related code to the Switch (<></> and the <Footer/>) -1 */}
                 <UnLogged /> <Footer />
               </>
             )}

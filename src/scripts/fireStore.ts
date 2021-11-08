@@ -1,5 +1,5 @@
 // NPM packages
-import { Firestore, DocumentData, getDoc } from "firebase/firestore/lite";
+import { Firestore, getDoc } from "firebase/firestore/lite";
 import { collection, getDocs } from "firebase/firestore/lite";
 import {
   addDoc,
@@ -27,7 +27,6 @@ export async function createDocumentWithId(
 
   return id;
 }
-
 
 // Read files
 export async function getCollection(db: Firestore, path: string) {
@@ -57,7 +56,6 @@ export async function updateDocument(path: string, id: string, data: object) {
 
   await updateDoc(docReference, updatedCourse);
 }
-
 
 // Delete file
 export async function deleteDocument(path: string, id: string) {

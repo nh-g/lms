@@ -8,7 +8,7 @@ import { useAuth } from "state/AuthProvider";
 import "./styles/styles.sass";
 import Logged from "routes/Logged";
 import UnLogged from "routes/Unlogged";
-import Footer from "components/Footer";
+import Footer from "components/shared/Footer";
 import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
@@ -36,6 +36,7 @@ export default function App() {
     },
     [setLoggedIn, setUser]
   );
+
   useEffect(() => {
     fetchUser("users", uid);
   }, [fetchUser, uid]);
@@ -44,6 +45,7 @@ export default function App() {
     <div className="App">
       {status === 0 && <Spinner />}
       {status === 2 && <BoxError />}
+      {/* Readibility, this can be refactor to make it easy to read -1 */}
       {status === 1 && (
         <BrowserRouter>
           <Switch>
@@ -51,6 +53,7 @@ export default function App() {
               <Logged />
             ) : (
               <>
+                {/* Don't add non Routes related code to the Switch (<></> and the <Footer/>) -1 */}
                 <UnLogged /> <Footer />
               </>
             )}

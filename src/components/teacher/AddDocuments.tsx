@@ -18,8 +18,6 @@ export default function AddDocuments() {
 
   const course = getCourseById(courseID, courses.data);
 
-  console.log("Add Document", course)
-
   return (
     <>
       <div id="course" className="page-container">

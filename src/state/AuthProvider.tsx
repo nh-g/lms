@@ -30,31 +30,6 @@ export function AuthProvider({ children }: iProps) {
   );
 }
 
-// export function AuthProvider({ children }: iProps) {
-//   // Local state
-
-//   const [loggedIn, setLoggedIn] = useState(false);
-//   const [user, setUser] = useState({});
-
-//   // const [uid, setUID] = useState("");
-//   // Methods
-  
-//   useEffect(() => {
-//     onAuthStateChanged(authInstance, (authUser) => {
-//       if (authUser) setUser(authUser);
-//       //@ts-ignore
-//       else setUser({});
-//     });
-//   }, []);
-
-//   console.log("AuthProvider,", user)
-//   return (
-//     //@ts-ignore
-//     <AuthContext.Provider value={{ user, setUser, loggedIn, setLoggedIn }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// }
 export function useAuth() {
   return useContext(AuthContext);
 }

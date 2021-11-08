@@ -4,9 +4,10 @@ import { Route } from "react-router-dom";
 // Project files
 import Login from "components/authentication/Login";
 import SignUp from "components/authentication/Signup";
-import Landing from "components/Landing";
+import Landing from "components/shared/Landing";
 import ResetPassword from "components/authentication/ResetPassword";
 
+// Good file!
 export default function Unlogged() {
   return (
     <>

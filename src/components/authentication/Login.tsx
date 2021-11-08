@@ -10,8 +10,9 @@ import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";
 import { useAuth } from "state/AuthProvider";
 import { useUser } from "state/UserProvider";
-import logo from '../../assets/brand/logo.png';
+import logo from "../../assets/brand/logo.png";
 
+// good file in general
 export default function Login() {
   // Global state
   const { setUser } = useUser();
@@ -46,6 +47,8 @@ export default function Login() {
   function onFailure(code) {
     setErrorMessage(code);
   }
+
+  // Good!
   //Components
   const Fields = fields.map((item) => (
     <InputField
@@ -69,7 +72,7 @@ export default function Login() {
           <h4>Log in</h4>
         </button>
       </form>
-      
+
       <p className="optional-action">
         <Link to="/password-reset">
           <strong> Forgot your password? </strong>{" "}

@@ -28,10 +28,11 @@ export default function Course() {
               <h1 className="title">{course.title}</h1>
               <p className="description">{course.description}</p>
             </header>
-            {/* <Links data={course} /> */}
             <section className="material-section">
               <h3>Documents</h3>
-              <div className="list-material">
+              <Links data={course} />
+
+              {/* <div className="list-material">
                 <a href={course.file} className="files" download>
                   <h4>Download file ⬇</h4>
                 </a>
@@ -44,7 +45,7 @@ export default function Course() {
                   className="links"
                   rel="noreferrer"
                 />
-              </div>
+              </div> */}
             </section>
 
             <Link to="/" className="btn btn-main btn-200">

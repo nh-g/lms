@@ -38,7 +38,7 @@ export async function signIn(email: string, password: string) {
     );
     account.payload = userCredential.user.uid;
     account.isLogged = true;
-  } catch (error:any) {
+  } catch (error: any) {
     account.payload = error.message;
   }
   return account;
@@ -64,7 +64,8 @@ export async function reset(email: string) {
 
   try {
     await sendPasswordResetEmail(authInstance, email);
-    account.payload = "A request has been received to change your password. A link to reset your password has been sent to your email ";
+    account.payload =
+      "A request has been received to change your password. A link to reset your password has been sent to your email ";
     account.isReset = true;
   } catch (error: any) {
     account.payload = error.message;

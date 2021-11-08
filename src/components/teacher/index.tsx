@@ -1,5 +1,5 @@
 // Project files
-import CoursesList from "components/CoursesList";
+import CoursesList from "components/shared/CoursesList";
 import CreateForm from "./Create";
 
 // Naming convention this name sounds like an OOP class not a react component

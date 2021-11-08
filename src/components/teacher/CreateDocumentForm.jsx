@@ -44,7 +44,7 @@ export default function CreateDocumentForm({ item }) {
 
 
   return (
-    <table className="create">
+    <table id="admin-table">
       <tr>
         {Fields}
         <td className="admin-options">

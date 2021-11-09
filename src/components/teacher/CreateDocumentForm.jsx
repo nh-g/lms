@@ -45,17 +45,19 @@ export default function CreateDocumentForm({ item }) {
 
   return (
     <table id="admin-table">
-      <tr>
-        {Fields}
-        <td className="admin-options">
-          <button onClick={onSubmit}>
-            <h4>
-              <AiFillPlusCircle />
-              Create
-            </h4>
-          </button>
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          {Fields}
+          <td className="admin-options">
+            <button onClick={onSubmit}>
+              <h4>
+                <AiFillPlusCircle />
+                Create
+              </h4>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 }

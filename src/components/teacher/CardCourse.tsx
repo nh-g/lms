@@ -46,7 +46,7 @@ export default function Card({ item }: iProps) {
   ));
 
   return (
-    <>
+    <tbody>
       <tr>
         {TitleDescription}
         <td className="custom-file-chooser">
@@ -73,6 +73,6 @@ export default function Card({ item }: iProps) {
           </Link>
         </td>
       </tr>
-    </>
+    </tbody>
   );
 }

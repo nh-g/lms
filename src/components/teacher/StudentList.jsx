@@ -16,14 +16,16 @@ export default function StudentList() {
 
   const StudentList = students.map((item) => {
     return (
-      <tr key={item.id}>
-        <td>{item.username}</td>
-        <td>{item.role}</td>
-        <td className="description-students ">{item.id}</td>
-        <td className="admin-options">
-          <Delete dataSelected={item} path="users" />
-        </td>
-      </tr>
+      <tbody>
+        <tr key={item.id}>
+          <td>{item.username}</td>
+          <td>{item.role}</td>
+          <td className="description-students ">{item.id}</td>
+          <td className="admin-options">
+            <Delete dataSelected={item} path="users" />
+          </td>
+        </tr>
+      </tbody>
     );
   });
   return (

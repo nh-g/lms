@@ -48,24 +48,26 @@ export default function Create() {
 
   return (
     <table id="admin-table">
-      <tr>
-        {Fields}
-        <td className="custom-file-chooser">
-          <ImageUploader
-            imageURL={imageURL}
-            setImageURL={setImageURL}
-            title={form.title}
-          />
-        </td>
-        <td className="admin-options">
-          <button onClick={onSubmit}>
-            <h4>
-              <AiFillPlusCircle />
-              Create
-            </h4>
-          </button>
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          {Fields}
+          <td className="custom-file-chooser">
+            <ImageUploader
+              imageURL={imageURL}
+              setImageURL={setImageURL}
+              title={form.title}
+            />
+          </td>
+          <td className="admin-options">
+            <button onClick={onSubmit}>
+              <h4>
+                <AiFillPlusCircle />
+                Create
+              </h4>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 }

@@ -1,6 +1,5 @@
 // NPM packages
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import {AiFillPlusCircle} from "react-icons/ai"
 
 // Project files
@@ -9,10 +8,8 @@ import { createDoc } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import ImageUploader from "components/shared/ImageUploader";
 import { useCourses } from "state/CoursesProvider";
-import useFetch from "hooks/useFetch";
 
 export default function Create() {
-  const history = useHistory();
 
   const [imageURL, setImageURL] = useState("");
 

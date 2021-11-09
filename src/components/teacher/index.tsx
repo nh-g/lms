@@ -1,6 +1,6 @@
 // Project files
 import CoursesList from "components/shared/CoursesList";
-import CreateForm from "./Create";
+import CreateForm from "./CreateCourse";
 
 export default function TeacherDashBoard() {
 

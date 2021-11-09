@@ -1,5 +1,5 @@
 
-//Local Files
+// Project files
 import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
 import { useUser } from "state/UserProvider";

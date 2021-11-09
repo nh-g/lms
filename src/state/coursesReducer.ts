@@ -13,7 +13,7 @@ export default function coursesReducer(state, action) {
 }
 function createCourse(state, action) {
   const { payload } = action;
-  return [...state, payload];
+  return [payload, ...state];
 }
 
 function updateCourse(state, action) {

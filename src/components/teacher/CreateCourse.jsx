@@ -8,6 +8,8 @@ import fields from 'assets/fields/fields-create.json'
 import { createDoc } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import ImageUploader from "components/shared/ImageUploader";
+import { useCourses } from "state/CoursesProvider";
+import useFetch from "hooks/useFetch";
 
 export default function Create() {
   const history = useHistory();
@@ -20,13 +22,17 @@ export default function Create() {
     imageURL: "",
   });
 
+  const { dispatchCourses } = useCourses();
+
+
   async function onSubmit(e) {
     e.preventDefault();
     let newCourse = { ...form};
     newCourse.imageURL = imageURL;
     await createDoc("courses", newCourse);
     alert(`${form.title} course created`);
-    history.push("/");
+    dispatchCourses({ type: "CREATE_COURSE", payload: newCourse });
+    window.location.reload(false); 
   }
 
   function onChange(key, value) {

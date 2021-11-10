@@ -11,11 +11,14 @@ import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import fields from "assets/fields/fields-edit.json";
 import ImageUploader from "components/shared/ImageUploader";
+import { useCourses } from "state/CoursesProvider";
 
 interface iProps {
   item: object;
 }
 export default function Card({ item }: iProps) {
+  const { dispatch } = useCourses();
+
   const [form, setForm] = useState(item);
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
 
@@ -26,7 +29,7 @@ export default function Card({ item }: iProps) {
       updatedCourse.imageURL = courseImageURL;
       await updateDocument("courses", item.id, { ...item, ...updatedCourse });
       alert("Course successfully updated");
-      window.location.reload(false); 
+      dispatch({ type: "UPDATE_COURSE", payload: updatedCourse });
     }
   }
 

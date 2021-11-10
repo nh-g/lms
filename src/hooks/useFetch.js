@@ -7,9 +7,9 @@ import { firestoreInstance } from "scripts/firebase";
 import { getCollection } from "scripts/fireStore";
 import { useCourses } from "state/CoursesProvider";
 
-export default function useFetch(collection) {
+export default function useFetch(collection, dispatch) {
   // Global state
-  const { dispatch } = useCourses();
+  // const { dispatch } = useCourses();
 
   //Local state
   const [data, setData] = useState([]);
@@ -18,7 +18,7 @@ export default function useFetch(collection) {
 
   // Methods
   const fetchData = useCallback(
-    async (collection) => {
+    async (collection, dispatch) => {
       try {
         const response = await getCollection(firestoreInstance, collection);
         dispatch({ type: "SET_DATA", payload: response });
@@ -29,12 +29,12 @@ export default function useFetch(collection) {
         setLoading(false);
       }
     },
-    []
+    [collection, dispatch]
   );
 
   useEffect(() => {
-    fetchData(collection);
-  }, [collection, fetchData]);
+    fetchData(collection, dispatch);
+  }, [fetchData]);
 
-  return {data, error, loading };
+  return { data, error, loading };
 }

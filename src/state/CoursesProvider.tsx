@@ -25,7 +25,7 @@ export function CoursesProvider({ children }: iProp) {
 
   const [courses, dispatch] = useReducer(coursesReducer, initialState);
 
-  console.log("courses", courses);
+  console.log("CoursesProvider", courses);
 
   return (
     <CoursesContext.Provider value={{ courses, dispatch }}>

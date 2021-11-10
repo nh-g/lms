@@ -26,8 +26,8 @@ export default function Create() {
     newCourse.imageURL = imageURL;
     const id = await createDoc("courses", newCourse);
     const course = { ...newCourse, id: id };
-    alert(`${form.title} course created`);
     dispatch({ type: "CREATE_COURSE", payload: course });
+    alert(`${form.title} course created`);
     // window.location.reload(false);
   }
 

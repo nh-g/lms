@@ -10,8 +10,8 @@ import BoxError from "./BoxError";
 import MappingList from "./MappingList";
 
 export default function CoursesList() {
-  // const { dispatch } = useCourses();
-  const courses = useFetch("courses");
+  const { dispatch } = useCourses();
+  const courses = useFetch("courses", dispatch);
 
   console.log("CourseList", courses);
 

@@ -20,12 +20,12 @@ export default function TeacherDashBoard() {
             you leave the input field.
           </p>
         </header>
-        <CreateForm />
+        <CreateForm/>
         <br />
         <h2>Active Courses</h2>
         <br />
         <table id="admin-table">
-          {loading && <Spinner/>}
+          {loading && <Spinner />}
           {data && <CoursesList />}
           {error && <p>{error}</p>}
         </table>

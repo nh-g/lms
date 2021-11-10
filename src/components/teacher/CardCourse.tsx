@@ -47,6 +47,7 @@ export default function Card({ item }: iProps) {
   return (
     <tbody>
       <tr>
+        <td>{item.index}</td>
         {TitleDescription}
         <td className="custom-file-chooser">
           <ImageUploader

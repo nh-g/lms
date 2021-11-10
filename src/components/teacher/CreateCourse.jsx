@@ -11,10 +11,12 @@ import { useCourses } from "state/CoursesProvider";
 
 export default function Create() {
   const { dispatch } = useCourses();
+  const { courses } = useCourses();
 
   const [imageURL, setImageURL] = useState("");
 
   const [form, setForm] = useState({
+    index: courses.length,
     title: "",
     description: "",
     imageURL: "",
@@ -24,11 +26,9 @@ export default function Create() {
     e.preventDefault();
     let newCourse = { ...form };
     newCourse.imageURL = imageURL;
-    const id = await createDoc("courses", newCourse);
-    const course = { ...newCourse, id: id };
-    dispatch({ type: "CREATE_COURSE", payload: course });
+    await createDoc("courses", newCourse);
+    dispatch({ type: "CREATE_COURSE", payload: newCourse });
     alert(`${form.title} course created`);
-    // window.location.reload(false);
   }
 
   function onChange(key, value) {

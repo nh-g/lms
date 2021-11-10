@@ -10,6 +10,8 @@ import ImageUploader from "components/shared/ImageUploader";
 import { useCourses } from "state/CoursesProvider";
 
 export default function Create() {
+  const { dispatch } = useCourses();
+
   const [imageURL, setImageURL] = useState("");
 
   const [form, setForm] = useState({
@@ -18,19 +20,14 @@ export default function Create() {
     imageURL: "",
   });
 
-  const { dispatch } = useCourses();
-
-  console.log("dispatch", dispatch);
-
   async function onSubmit(e) {
     e.preventDefault();
     let newCourse = { ...form };
     newCourse.imageURL = imageURL;
-    await createDoc("courses", newCourse);
+    const id = await createDoc("courses", newCourse);
+    const course = { ...newCourse, id: id };
     alert(`${form.title} course created`);
-    dispatch({ type: "CREATE_COURSE", payload: newCourse });
-
-    console.log("dispatch", dispatch);
+    dispatch({ type: "CREATE_COURSE", payload: course });
     // window.location.reload(false);
   }
 

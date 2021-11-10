@@ -10,8 +10,10 @@ import BoxError from "./BoxError";
 import MappingList from "./MappingList";
 
 export default function CoursesList() {
-  const { dispatch } = useCourses();
-  const courses = useFetch("courses", dispatch);
+  // const { dispatch } = useCourses();
+  const courses = useFetch("courses");
+
+  console.log("CourseList", courses);
 
   const { user } = useUser();
   const isTeacher = user.role === "teacher";

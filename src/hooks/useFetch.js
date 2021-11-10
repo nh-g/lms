@@ -5,8 +5,12 @@ import { useCallback } from "react";
 // Project files
 import { firestoreInstance } from "scripts/firebase";
 import { getCollection } from "scripts/fireStore";
+import { useCourses } from "state/CoursesProvider";
 
-export default function useFetch(collection, dispatch) {
+export default function useFetch(collection) {
+  // Global state
+  const { dispatch } = useCourses();
+
   //Local state
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
@@ -14,10 +18,10 @@ export default function useFetch(collection, dispatch) {
 
   // Methods
   const fetchData = useCallback(
-    async (collection, dispatch) => {
+    async (collection) => {
       try {
         const response = await getCollection(firestoreInstance, collection);
-        dispatch({ type: "SET_DATA", payload: collection });
+        dispatch({ type: "SET_DATA", payload: response });
         setData(response);
       } catch (e) {
         setError(e);
@@ -25,12 +29,12 @@ export default function useFetch(collection, dispatch) {
         setLoading(false);
       }
     },
-    [setData, setLoading, setError]
+    []
   );
 
   useEffect(() => {
-    fetchData(collection, dispatch);
-  }, [collection, dispatch, fetchData]);
+    fetchData(collection);
+  }, [collection, fetchData]);
 
-  return { data, error, loading, setData };
+  return {data, error, loading };
 }

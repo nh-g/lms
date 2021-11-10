@@ -1,13 +1,31 @@
-//@ts-nocheck
-import { createContext, useReducer, useContext } from "react";
+// NPM packages
+import { createContext, ReactNode, useContext, useReducer } from "react";
+
 //Project files
 import coursesReducer from "./coursesReducer";
+import iCourse from "types/iCourse"
 
-const CoursesContext = createContext(null);
+interface iProp {
+  children: ReactNode;
+}
 
-export function CoursesProvider({ children }) {
-  // Local state
-  const [courses, dispatch] = useReducer(coursesReducer, []);
+interface iContext {
+  courses: iCourse[];
+  dispatch: Function;
+}
+
+const initialState: iCourse[] = [];
+
+const CoursesContext = createContext<iContext>({
+  courses: initialState,
+  dispatch: () => console.warn("CoursesContext used outside provider"),
+});
+
+export function CoursesProvider({ children }: iProp) {
+
+  const [courses, dispatch] = useReducer(coursesReducer, initialState);
+
+  console.log("courses", courses);
 
   return (
     <CoursesContext.Provider value={{ courses, dispatch }}>
@@ -17,5 +35,7 @@ export function CoursesProvider({ children }) {
 }
 
 export function useCourses() {
-  return useContext(CoursesContext);
+  const context = useContext(CoursesContext);
+  return context;
+
 }

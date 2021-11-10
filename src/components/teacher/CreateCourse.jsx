@@ -21,6 +21,7 @@ export default function Create() {
 
   const { dispatchCourses } = useCourses();
 
+  console.log("dispatchCourses", dispatchCourses);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -29,7 +30,9 @@ export default function Create() {
     await createDoc("courses", newCourse);
     alert(`${form.title} course created`);
     dispatchCourses({ type: "CREATE_COURSE", payload: newCourse });
-    window.location.reload(false); 
+
+    console.log("dispatchCourses", dispatchCourses);
+    // window.location.reload(false); 
   }
 
   function onChange(key, value) {

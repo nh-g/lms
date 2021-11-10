@@ -9,14 +9,27 @@ import useFetch from "hooks/useFetch";
 import Spinner from "../shared/Spinner";
 import BoxError from "../shared/BoxError";
 import CreateDocumentForm from "./CreateDocumentForm";
+import MappingList from "components/shared/MappingList";
+import CardDocument from "./CardDocument";
 
 export default function AddDocuments() {
-
   const { courseID } = useParams();
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
 
   const course = getCourseById(courseID, courses.data);
+
+
+  // console.log("links", course.links);
+
+  // const Links = course.links.map((item, index) => {
+  //     return(
+  //     <tr key={index}>
+  //       <td>{item.title}</td>
+  //     </tr>
+  //     )
+
+  // });
 
   return (
     <>
@@ -33,15 +46,23 @@ export default function AddDocuments() {
                 when you leave the input field.
               </p>
             </header>
-            
+
             <h2>Add Document</h2>
-            <CreateDocumentForm item={course} />
+            <CreateDocumentForm
+              item={course}
+              documentID={course.links.length}
+            />
             <br />
 
+            <h3>{course.links.length}</h3>
+
             <section className="material-section">
-              <h2>Active Documents</h2>
-              {/* <h3>{course.links[0].title}</h3> */}
-              
+              <h2>External References</h2>
+              <table id="admin-table">
+                {/* {Links} */}
+                <MappingList Component={CardDocument} mapData={course.links} />
+              </table>
+
               {/* <div className="list-material">
                 <a href={course.file} className="files" download>
                   <h4>Download file ⬇</h4>

@@ -1,7 +1,7 @@
 // @ts-nocheck
 // NPM packages
 import { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files
@@ -16,7 +16,6 @@ interface iProps {
   item: object;
 }
 export default function Card({ item }: iProps) {
-  const history = useHistory();
   const [form, setForm] = useState(item);
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
 
@@ -27,7 +26,7 @@ export default function Card({ item }: iProps) {
       updatedCourse.imageURL = courseImageURL;
       await updateDocument("courses", item.id, { ...item, ...updatedCourse });
       alert("Course successfully updated");
-      history.push("/");
+      window.location.reload(false); 
     }
   }
 

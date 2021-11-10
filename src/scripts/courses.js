@@ -5,3 +5,4 @@ export function getCourseById(id, array) {
     });
   }
 }
+

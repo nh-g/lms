@@ -4,14 +4,13 @@ import { useHistory } from "react-router-dom";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files
-import fields from "assets/fields/fields-addDocument.json";
+import fields from "assets/fields/fields-add-document.json";
 import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 
-export default function CreateDocumentForm({ item }) {
-  const history = useHistory();
-
+export default function CreateDocumentForm({ item, documentID }) {
   const [form, setForm] = useState({
+    id: documentID,
     title: "",
     linkURL: "",
   });
@@ -25,7 +24,7 @@ export default function CreateDocumentForm({ item }) {
 
     await updateDocument("courses", item.id, { ...item, ...newCourse });
     alert(`${form.title} document created`);
-    history.push("/");
+    window.location.reload(false);
   }
 
   function onChange(key, value) {
@@ -41,7 +40,6 @@ export default function CreateDocumentForm({ item }) {
       onChange={onChange}
     />
   ));
-
 
   return (
     <table id="admin-table">

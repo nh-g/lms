@@ -1,0 +1,18 @@
+[
+  {
+    "key": "title",
+    "label": "Title",
+    "placeholder": "Write a document name",
+    "mode": "edit",
+    "type": "text",
+    "rows": 3
+  },
+  {
+    "key": "linkURL",
+    "label": "Document URL",
+    "placeholder": "LinkURL for the document",
+    "mode": "edit",
+    "type": "text",
+    "rows": 3
+  }
+]

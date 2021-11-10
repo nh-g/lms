@@ -7,6 +7,7 @@ import {
   deleteDoc,
   updateDoc,
   setDoc,
+  deleteField,
 } from "firebase/firestore/lite";
 
 import { firestoreInstance } from "./firebase";
@@ -64,3 +65,4 @@ export async function deleteDocument(path: string, id: string) {
   const docReference = doc(firestoreInstance, path, id);
   await deleteDoc(docReference);
 }
+

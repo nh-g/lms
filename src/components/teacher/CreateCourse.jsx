@@ -1,16 +1,15 @@
 // NPM packages
 import { useState } from "react";
-import {AiFillPlusCircle} from "react-icons/ai"
+import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files
-import fields from 'assets/fields/fields-create.json'
+import fields from "assets/fields/fields-create.json";
 import { createDoc } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 import ImageUploader from "components/shared/ImageUploader";
 import { useCourses } from "state/CoursesProvider";
 
 export default function Create() {
-
   const [imageURL, setImageURL] = useState("");
 
   const [form, setForm] = useState({
@@ -19,20 +18,20 @@ export default function Create() {
     imageURL: "",
   });
 
-  const { dispatchCourses } = useCourses();
+  const { dispatch } = useCourses();
 
-  console.log("dispatchCourses", dispatchCourses);
+  console.log("dispatch", dispatch);
 
   async function onSubmit(e) {
     e.preventDefault();
-    let newCourse = { ...form};
+    let newCourse = { ...form };
     newCourse.imageURL = imageURL;
     await createDoc("courses", newCourse);
     alert(`${form.title} course created`);
-    dispatchCourses({ type: "CREATE_COURSE", payload: newCourse });
+    dispatch({ type: "CREATE_COURSE", payload: newCourse });
 
-    console.log("dispatchCourses", dispatchCourses);
-    // window.location.reload(false); 
+    console.log("dispatch", dispatch);
+    // window.location.reload(false);
   }
 
   function onChange(key, value) {

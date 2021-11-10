@@ -7,10 +7,10 @@ const CoursesContext = createContext(null);
 
 export function CoursesProvider({ children }) {
   // Local state
-  const [courses, dispatchCourses] = useReducer(coursesReducer, []);
+  const [courses, dispatch] = useReducer(coursesReducer, []);
 
   return (
-    <CoursesContext.Provider value={{ courses, dispatchCourses }}>
+    <CoursesContext.Provider value={{ courses, dispatch }}>
       {children}
     </CoursesContext.Provider>
   );

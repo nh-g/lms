@@ -1,4 +1,3 @@
-
 // Project files
 import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
@@ -11,8 +10,8 @@ import BoxError from "./BoxError";
 import MappingList from "./MappingList";
 
 export default function CoursesList() {
-  const { dispatchCourses } = useCourses();
-  const courses = useFetch("courses", dispatchCourses);
+  const { dispatch } = useCourses();
+  const courses = useFetch("courses", dispatch);
 
   const { user } = useUser();
   const isTeacher = user.role === "teacher";

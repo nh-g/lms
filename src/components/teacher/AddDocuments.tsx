@@ -14,11 +14,10 @@ import CardDocument from "./CardDocument";
 
 export default function AddDocuments() {
   const { courseID } = useParams();
-  const { dispatchCourses } = useCourses();
-  const courses = useFetch("courses", dispatchCourses);
+  const { dispatch } = useCourses();
+  const courses = useFetch("courses", dispatch);
 
   const course = getCourseById(courseID, courses.data);
-
 
   // console.log("links", course.links);
 

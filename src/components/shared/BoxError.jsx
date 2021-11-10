@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function BoxError() {
   return (
     <div className="load-error">

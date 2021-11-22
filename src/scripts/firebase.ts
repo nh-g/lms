@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCbY6EZHVVudszDMs8QlNMJzzaXI0qk5og",
-  authDomain: "learning-platform-giang.firebaseapp.com",
-  projectId: "learning-platform-giang",
-  storageBucket: "learning-platform-giang.appspot.com",
-  messagingSenderId: "609307702361",
-  appId: "1:609307702361:web:f6a23a63d53f2749236d48",
+  apiKey: "AIzaSyBXf16s3a7H2coBwFFzCfmY-Xvr7sbsk8s",
+  authDomain: "lms-npa.firebaseapp.com",
+  projectId: "lms-npa",
+  storageBucket: "lms-npa.appspot.com",
+  messagingSenderId: "998505890228",
+  appId: "1:998505890228:web:54a77f5828ddab7d1632e1",
 };
 
 const firebaseInstance = initializeApp(firebaseConfig);

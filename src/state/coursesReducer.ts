@@ -5,6 +5,9 @@ export default function coursesReducer(state, action) {
       return createCourse(state, action);
     case "UPDATE_COURSE":
       return updateCourse(state, action);
+    case "DELETE_COURSE":
+      return deleteCourse(state, action);
+
     case "SET_DATA":
       return setCourses(action);
     default:
@@ -28,4 +31,11 @@ function updateCourse(state, action) {
 function setCourses(action) {
   const { payload } = action;
   return payload;
+}
+
+
+function deleteCourse(state, action) {
+  const { payload } = action;
+  const newState = state.filter((item) => item.id !== payload);
+  return newState;
 }

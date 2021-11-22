@@ -1,6 +1,5 @@
 // NPM packages
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files

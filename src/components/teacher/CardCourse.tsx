@@ -48,34 +48,36 @@ export default function Card({ item }: iProps) {
   ));
 
   return (
-    <tbody>
-      <tr>
-        <td>{item.index}</td>
-        {TitleDescription}
-        <td className="custom-file-chooser">
-          <ImageUploader
-            imageURL={courseImageURL}
-            setImageURL={setCourseImageURL}
-            title={form.title}
-          />
-        </td>
-        <td className="admin-options">
-          <Delete path="courses" dataSelected={item} />
-        </td>
-        <td className="admin-options">
-          <ButtonEdit handleClick={onSubmit} />
-        </td>
-        <td className="admin-options">
-          <Link to={"/course-edit/" + item.id}>
-            <button>
-              <h4>
-                <AiFillPlusCircle />
-                Add
-              </h4>
-            </button>
-          </Link>
-        </td>
-      </tr>
-    </tbody>
+    // <tbody>
+    //   <tr>
+    <>
+      {/* <td>{item.index}</td> */}
+      {TitleDescription}
+      <td className="custom-file-chooser">
+        <ImageUploader
+          imageURL={courseImageURL}
+          setImageURL={setCourseImageURL}
+          title={form.title}
+        />
+      </td>
+      <td className="admin-options">
+        <Delete path="courses" dataSelected={item} />
+      </td>
+      <td className="admin-options">
+        <ButtonEdit handleClick={onSubmit} />
+      </td>
+      <td className="admin-options">
+        <Link to={"/course-edit/" + item.id}>
+          <button>
+            <h4>
+              <AiFillPlusCircle />
+              Add
+            </h4>
+          </button>
+        </Link>
+      </td>
+      {/* </tr>
+    </tbody> */}
+    </>
   );
 }

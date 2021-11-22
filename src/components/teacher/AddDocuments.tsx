@@ -16,8 +16,10 @@ export default function AddDocuments() {
   const { courseID } = useParams();
   const { dispatch } = useCourses();
   const courses = useFetch("courses", dispatch);
-
   const course = getCourseById(courseID, courses.data);
+
+  // const { courses } = useCourses();
+  // const course = getCourseById(courseID, courses);
 
   // console.log("links", course.links);
 
@@ -37,32 +39,29 @@ export default function AddDocuments() {
         {courses.error !== null && <BoxError />}
 
         {(!courses.loading && courses.error) === null && (
-          <div className="page">
-            <header className="header">
-              <h1 className="title">{course.title}</h1>
-              <p className="description">
-                This is a inline editable table. Click to fill in. Auto save
-                when you leave the input field.
-              </p>
-            </header>
+        <div className="page">
+          <header className="header">
+            <h1 className="title">{course.title}</h1>
+            <p className="description">
+              This is a inline editable table. Click to fill in. Auto save when
+              you leave the input field.
+            </p>
+          </header>
 
-            <h2>Add Document</h2>
-            <CreateDocumentForm
-              item={course}
-              documentID={course.links.length}
-            />
-            <br />
+          <h2>Add Document</h2>
+          <CreateDocumentForm item={course} documentID={course.links.length} />
+          <br />
 
-            <h3>{course.links.length}</h3>
+          {/* <h3>{course.links.length}</h3> */}
 
-            <section className="material-section">
-              <h2>External References</h2>
-              <table id="admin-table">
-                {/* {Links} */}
-                <MappingList Component={CardDocument} mapData={course.links} />
-              </table>
+          <section className="material-section">
+            <h2>External References</h2>
+            <table id="admin-table">
+              {/* {Links} */}
+              <MappingList Component={CardDocument} mapData={course.links} />
+            </table>
 
-              {/* <div className="list-material">
+            {/* <div className="list-material">
                 <a href={course.file} className="files" download>
                   <h4>Download file ⬇</h4>
                 </a>
@@ -76,12 +75,12 @@ export default function AddDocuments() {
                   rel="noreferrer"
                 />
               </div> */}
-            </section>
+          </section>
 
-            <Link to="/" className="btn btn-main btn-200">
-              <h4>Back to courses</h4>
-            </Link>
-          </div>
+          <Link to="/" className="btn btn-main btn-200">
+            <h4>Back to courses</h4>
+          </Link>
+        </div>
         )}
       </div>
     </>

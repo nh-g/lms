@@ -11,7 +11,6 @@ import { useCourses } from "state/CoursesProvider";
 
 export default function Create() {
   const { dispatch } = useCourses();
-  const { courses } = useCourses();
 
   const [imageURL, setImageURL] = useState("");
 
@@ -19,6 +18,7 @@ export default function Create() {
     title: "",
     description: "",
     imageURL: "",
+    links: [{}],
   });
 
   async function onSubmit(e) {
@@ -26,11 +26,11 @@ export default function Create() {
     let courseInfo = { ...form };
     courseInfo.imageURL = imageURL;
     const id = await createDoc("courses", courseInfo);
-    const newCourse = {...courseInfo, id: id}
+    const newCourse = { ...courseInfo, id: id };
+
     dispatch({ type: "CREATE_COURSE", payload: newCourse });
     alert(`${form.title} course created`);
     setForm("");
-
   }
 
   function onChange(key, value) {

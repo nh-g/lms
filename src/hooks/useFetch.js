@@ -5,12 +5,8 @@ import { useCallback } from "react";
 // Project files
 import { firestoreInstance } from "scripts/firebase";
 import { getCollection } from "scripts/fireStore";
-import { useCourses } from "state/CoursesProvider";
 
 export default function useFetch(collection, dispatch) {
-  // Global state
-  // const { dispatch } = useCourses();
-
   //Local state
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
@@ -29,12 +25,12 @@ export default function useFetch(collection, dispatch) {
         setLoading(false);
       }
     },
-    [collection, dispatch]
+    []
   );
 
   useEffect(() => {
     fetchData(collection, dispatch);
-  }, [fetchData]);
+  }, [fetchData, collection, dispatch]);
 
   return { data, error, loading };
 }

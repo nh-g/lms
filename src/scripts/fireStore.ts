@@ -7,7 +7,6 @@ import {
   deleteDoc,
   updateDoc,
   setDoc,
-  deleteField,
 } from "firebase/firestore/lite";
 
 import { firestoreInstance } from "./firebase";
@@ -29,7 +28,6 @@ export async function createDocumentWithId(
 
   return id;
 }
-
 
 // Read files
 export async function getCollection(db: Firestore, path: string) {
@@ -60,10 +58,8 @@ export async function updateDocument(path: string, id: string, data: object) {
   await updateDoc(docReference, updatedCourse);
 }
 
-
 // Delete file
 export async function deleteDocument(path: string, id: string) {
   const docReference = doc(firestoreInstance, path, id);
   await deleteDoc(docReference);
 }
-

@@ -8,6 +8,7 @@ import { updateDocument } from "scripts/fireStore";
 import InputEditable from "./InputEditable";
 
 export default function CreateDocumentForm({ item, documentID }) {
+
   const [form, setForm] = useState({
     id: documentID,
     title: "",
@@ -23,7 +24,6 @@ export default function CreateDocumentForm({ item, documentID }) {
 
     await updateDocument("courses", item.id, { ...item, ...newCourse });
     alert(`${form.title} document created`);
-    window.location.reload(false);
   }
 
   function onChange(key, value) {

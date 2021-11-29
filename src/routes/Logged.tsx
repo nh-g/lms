@@ -11,7 +11,7 @@ import Course from "components/course";
 import StudentList from "components/teacher/StudentList"
 import Navigator from "components/shared/Navigator";
 import Profile from "components/profile";
-import AddDocuments from "components/teacher/AddDocuments";
+import AddDocuments from "components/teacher/resources-editor/AddResources";
 
 import { useUser } from "state/UserProvider";
 

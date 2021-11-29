@@ -74,13 +74,11 @@ export default function Card({ item }: iProps) {
           <button>
             <h4>
               <AiFillPlusCircle />
-              Add
+              Add resources
             </h4>
           </button>
         </Link>
       </td>
-      {/* </tr>
-    </tbody> */}
     </>
   );
 }

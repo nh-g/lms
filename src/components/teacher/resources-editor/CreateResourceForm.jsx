@@ -5,10 +5,9 @@ import { AiFillPlusCircle } from "react-icons/ai";
 // Project files
 import fields from "assets/fields/fields-add-document.json";
 import { updateDocument } from "scripts/fireStore";
-import InputEditable from "./InputEditable";
+import InputEditable from "../InputEditable";
 
-export default function CreateDocumentForm({ item, documentID }) {
-
+export default function CreateResourceForm({ item, documentID }) {
   const [form, setForm] = useState({
     id: documentID,
     title: "",
@@ -24,6 +23,7 @@ export default function CreateDocumentForm({ item, documentID }) {
 
     await updateDocument("courses", item.id, { ...item, ...newCourse });
     alert(`${form.title} document created`);
+    window.location.reload(false);
   }
 
   function onChange(key, value) {
@@ -47,10 +47,8 @@ export default function CreateDocumentForm({ item, documentID }) {
           {Fields}
           <td className="admin-options">
             <button onClick={onSubmit}>
-              <h4>
-                <AiFillPlusCircle />
-                Create
-              </h4>
+              <AiFillPlusCircle />
+              Create
             </button>
           </td>
         </tr>

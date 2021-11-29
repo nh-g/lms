@@ -7,8 +7,8 @@ export default function CourseList() {
 
   const List = courses.map((item, index) => (
     <tr>
-      <td style = {{width: "10px"}}>{index}</td>
-      <CardInTeacherPage key={index} item={item} />
+      <td style={{ width: "10px" }}>{index}</td>
+      <CardInTeacherPage key={item.id} item={item} />
     </tr>
   ));
   return (
@@ -27,7 +27,7 @@ export default function CourseList() {
         <tbody>
           <tr>
             <td>
-              <h3>Currently no content to show. More are coming...</h3>
+              <h3>Currently no content to show. Click to fill in the form...</h3>
             </td>
           </tr>
         </tbody>

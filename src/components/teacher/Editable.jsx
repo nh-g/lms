@@ -44,7 +44,7 @@ const Editable = ({
           onClick={() => setEditing(true)}
         >
           <span className={`${text ? "text-black" : "text-gray-500"}`}>
-            {text || placeholder || "Editable content"}
+            {text || placeholder || "This is inline editable"}
           </span>
         </div>
       )}

@@ -1,5 +1,4 @@
 // Project files
-// import CoursesList from "components/shared/CoursesList";
 import CreateForm from "./CreateCourse";
 import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
@@ -10,15 +9,6 @@ export default function TeacherDashBoard() {
   const path = "courses";
   const { dispatch } = useCourses();
   const { data, loading, error } = useFetch(path, dispatch);
-
-  // const CoursesList = data.map((item, index) => (
-  //   <>
-  //     <tr>
-  //       <td>{index} </td>
-  //       <CardInTeacherPage item={item} />
-  //     </tr>
-  //   </>
-  // ));
 
   return (
     <div id="dashboard" className="page-container">
@@ -31,17 +21,15 @@ export default function TeacherDashBoard() {
           </p>
         </header>
         <CreateForm />
-        <br />
-        <h2>Active Courses</h2>
-        <br />
-        <table id="admin-table">
-          {loading && <Spinner />}
-          {data && <CourseList/>}
-          {error && <p>{error}</p>}
-          {/* {data && CoursesList} */}
+        <h2 className = "section-title">Active Courses</h2>
 
-          {/* <CoursesList /> */}
+        {loading && <Spinner />}
+        {error && <p>{error}</p>}
+
+        <table id="admin-table">
+          {data && <CourseList />}
         </table>
+
       </div>
     </div>
   );

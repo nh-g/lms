@@ -1,7 +1,7 @@
 // @ts-nocheck
 // NPM packages
-import { useState } from "react";
-import {Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 // Project files
@@ -20,6 +20,12 @@ export default function Card({ item }: iProps) {
   const { dispatch } = useCourses();
 
   const [form, setForm] = useState(item);
+
+  useEffect(() => {
+    setForm(item);
+  }, [item]);
+
+
   const [courseImageURL, setCourseImageURL] = useState(item.imageURL);
 
   async function onSubmit(event) {
@@ -48,10 +54,7 @@ export default function Card({ item }: iProps) {
   ));
 
   return (
-    // <tbody>
-    //   <tr>
     <>
-      {/* <td>{item.index}</td> */}
       {TitleDescription}
       <td className="custom-file-chooser">
         <ImageUploader

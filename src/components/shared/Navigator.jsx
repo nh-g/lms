@@ -20,7 +20,6 @@ export default function Navigator() {
   // Methods
   function onLogout() {
     const account = logOut();
-    console.log("Account logging out", account);
     setLoggedIn(false);
     setUser(null);
     history.push("/login");

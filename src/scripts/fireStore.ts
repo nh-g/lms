@@ -15,7 +15,8 @@ import { firestoreInstance } from "./firebase";
 // Create doc with auto id
 export async function createDoc(path: string, data: object) {
   const collectionReference = collection(firestoreInstance, path);
- await addDoc(collectionReference, data);
+  const documentReference = await addDoc(collectionReference, data);
+  return documentReference.id;
 }
 
 export async function createDocumentWithId(
